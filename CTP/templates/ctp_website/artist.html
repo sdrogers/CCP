@@ -1,0 +1,10 @@
+{% extends 'ctp_website/base.html' %}
+
+{% load static %}
+
+{% block titleblock %}Cottier Chamber Project:{{ name }}{% endblock %}
+
+{% block bodyblock %}
+{{ name }},{{ genre }}, {{ bio }}, {{image_url}}
+ {% if image_url %}<img src="media/{{image_url}}" alt="{{image_url}}" style="float:right" />{% endif %}
+ {% endblock %}

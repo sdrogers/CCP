@@ -1,0 +1,16 @@
+{% extends 'ctp_website/base.html' %}
+
+{% block titleblock %}Cottier Chamber Project:Artists{% endblock %}
+
+{% block bodyblock %}
+	{% if artists %}
+		<span><b>Artists:</b></span>
+		<ul>
+		{% for artist in artists %}
+			<li><A href="/ctp_website/artist/{{ artist.url }}">{{ artist.name }}</A>&nbsp;&nbsp;[<A href="/ctp_website/genre/{{ artist.genre }}">{{ artist.genre }}</A>]
+		{% endfor %}
+		</ul>
+	{% else %}
+		<b>No artists in database</b>
+	{% endif %}
+{% endblock %}
