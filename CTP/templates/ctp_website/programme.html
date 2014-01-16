@@ -1,0 +1,15 @@
+{% extends 'ctp_website/base.html' %}
+
+{% block titleblock %}Programme{% endblock %}
+
+{% block bodyblock %}
+<h2 style="text-align:right">Programme</h2>
+{% if gigs %}
+	<ul>
+		{% for gig in gigs %}
+			<li><a href="/ctp_website/artist/{{gig.artist.url}}">{{gig.artist.name}}</a>, {{gig.date|date:"M d"}}, {{gig.time|date:"g:i a"}}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% endblock %}

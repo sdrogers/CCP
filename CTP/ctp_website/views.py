@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from ctp_website.models import Artist, Genre
+from ctp_website.models import Artist, Genre,Gig
 
 
 def index(request):
@@ -12,14 +12,27 @@ def index(request):
 def artist(request,artist_name_url):
 	context = RequestContext(request)
 	context_dict = {'artist_name_url':artist_name_url}
-	a = Artist.objects.get(url__iexact = artist_name_url)
 	try:
 		a = Artist.objects.get(url__iexact = artist_name_url)
+		g = Gig.objects.filter(artist = a)
+		context_dict['gigs'] = g
 		context_dict['name'] = a.name
 		context_dict['genre'] = a.genre
 		context_dict['bio'] = a.bio
-		context_dict['image_url'] = a.image
-		print a.image
+		if a.image_url != "empty":
+			context_dict['image_url'] = a.image_url
+			context_dict['image_width'] = a.image_width
+			context_dict['image_credit'] = a.image_credit
+		if a.image_url2 != "empty":
+			context_dict['image_url2'] = a.image_url2
+			context_dict['image_width2'] = a.image_width2
+			context_dict['image_credit2'] = a.image_credit2
+		if a.review_url != "empty":
+			context_dict['review_url'] = a.review_url
+		if a.review_url2 != "empty":
+			context_dict['review_url2'] = a.review_url2
+		
+		# print a.image
 	except:
 		pass
 
@@ -43,3 +56,13 @@ def genre(request,genre_name):
 		pass
 
 	return render_to_response('ctp_website/genre.html',context_dict,context)
+
+def about(request):
+	context =  RequestContext(request)
+	return render_to_response('ctp_website/about.html')
+
+def programme(request):
+	context = RequestContext(request)
+	g = Gig.objects.order_by('date')
+	context_dict = {'gigs':g}
+	return render_to_response('ctp_website/programme.html',context_dict,context)

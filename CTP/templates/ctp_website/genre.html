@@ -4,9 +4,8 @@
 
 {% block bodyblock %}
 {% if foundname %}
-	<h2 class="text-right">{{ foundname }}</h2>
+	<h2 class="text-right">Artists:{{ foundname }}</h2>
 	{% if artists %}
-		<span><b>Artists:</b></span>
 		<ul>
 		{% for artist in artists %}
 			<li><A href="/ctp_website/artist/{{ artist.url }}">{{ artist.name }}</A>&nbsp;&nbsp;
@@ -18,4 +17,5 @@
 {% else %}
 	<b>Genre <i>{{ name }}</i> does not exist in the database</b>
 {% endif %}
+<div>Return to <A href="/ctp_website/artists">all</A> artists.</div>
 {% endblock %}

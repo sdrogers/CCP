@@ -4,7 +4,7 @@
 
 {% block bodyblock %}
 	{% if artists %}
-		<span><b>Artists:</b></span>
+		<h2 style="text-align:right">Artists</h2>
 		<ul>
 		{% for artist in artists %}
 			<li><A href="/ctp_website/artist/{{ artist.url }}">{{ artist.name }}</A>&nbsp;&nbsp;[<A href="/ctp_website/genre/{{ artist.genre }}">{{ artist.genre }}</A>]
