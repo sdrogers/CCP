@@ -19,8 +19,14 @@ class Artist(models.Model):
 	image_credit2 = models.CharField(max_length = 1024,default = "empty")
 	review_url = models.CharField(max_length = 1024,default = "empty")
 	review_url2 = models.CharField(max_length = 1024,default = "empty")
-	width = models.PositiveIntegerField(blank = True, null = True,editable = False,default = 0)
-	height = models.PositiveIntegerField(blank = True, null = True,editable = False,default = 0)
+	def __unicode__(self):
+		return self.name
+
+class Venue(models.Model):
+	name = models.CharField(max_length = 1024,unique=True)
+	address = models.CharField(max_length = 1024,unique =True)
+	contact_number = models.CharField(max_length = 20,null = True)
+	url = models.CharField(max_length = 1024,null = True)
 	def __unicode__(self):
 		return self.name
 
@@ -28,4 +34,9 @@ class Gig(models.Model):
 	artist = models.ForeignKey(Artist)
 	date = models.DateField()
 	time = models.TimeField()
+	venue = models.ForeignKey(Venue,null=True)
+	def __unicode__(self):
+		return self.artist
+
+
 

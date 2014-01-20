@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ctp_website.models import Genre, Artist, Gig
+from ctp_website.models import Genre, Artist, Gig, Venue
 
 
 class GigAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class GigAdmin(admin.ModelAdmin):
 admin.site.register(Genre)
 admin.site.register(Artist)
 admin.site.register(Gig,GigAdmin)
+admin.site.register(Venue)
