@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from ctp_website.models import Artist, Genre,Gig
+from ctp_website.models import Artist,Gig,GigDay
 
 
 def index(request):
@@ -63,6 +63,7 @@ def about(request):
 
 def programme(request):
 	context = RequestContext(request)
-	g = Gig.objects.order_by('date')
-	context_dict = {'gigs':g}
+	g = GigDay.objects.order_by('date')
+	print g
+	context_dict = {'gigDays':g}
 	return render_to_response('ctp_website/programme.html',context_dict,context)

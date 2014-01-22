@@ -3,13 +3,21 @@
 {% block titleblock %}Programme{% endblock %}
 
 {% block bodyblock %}
-<h2 style="text-align:right">Programme</h2>
-{% if gigs %}
-	<ul>
+<!-- <h2 style="text-align:right">Programme</h2> -->
+{% if gigDays %}
+	<!-- <ul>
 		{% for gig in gigs %}
 			<li><a href="/ctp_website/artist/{{gig.artist.url}}">{{gig.artist.name}}</a>, {{gig.date|date:"M d"}}, {{gig.time|date:"g:i a"}}</li>
 		{% endfor %}
-	</ul>
+	</ul> -->
+	<div class="row">
+	<div>{{gigDays[0]}}</div>
+	{% for gig in gigDays %}
+	
+		<div>{{gig.dayOfTheWeek}}&nbsp;{{gig.date}}</div>
+	
+	{% endfor %}
+	</div>
 {% endif %}
 
 {% endblock %}
