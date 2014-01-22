@@ -65,5 +65,8 @@ def programme(request):
 	context = RequestContext(request)
 	g = GigDay.objects.order_by('date')
 	print g
-	context_dict = {'gigDays':g}
+	context_dict = {'gigDays':g}	
+	these = Gig.objects.filter(date = g[0])
+	context_dict['test'] = these
+	print these
 	return render_to_response('ctp_website/programme.html',context_dict,context)

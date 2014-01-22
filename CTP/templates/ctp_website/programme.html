@@ -11,13 +11,84 @@
 		{% endfor %}
 	</ul> -->
 	<div class="row">
-	<div>{{gigDays[0]}}</div>
-	{% for gig in gigDays %}
-	
-		<div>{{gig.dayOfTheWeek}}&nbsp;{{gig.date}}</div>
-	
-	{% endfor %}
+	<div class="span1">Mon</div>
+	<div class="span1">Tue</div>
+	<div class="span1">Wed</div>
+	<div class="span1">Thurs</div>
+	<div class="span1">Fri</div>
+	<div class="span1">Sat</div>
+	<div class="span1">Sun</div>
+	<div class="span2"></div>
 	</div>
+	<div class="row">
+	<div class="span4">&nbsp;</div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.0.date|date:"d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.1.date|date:"d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.2.date|date:"d"}}<br /><br /></div>
+	<div class="span2"></div>
+	</div>
+	<div class="row"><div class="span9">&nbsp;</div></div>
+	<div class="row">
+	<div class="span1" style="background-color: #ff6600">{{gigDays.3.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.4.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.5.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.6.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.7.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.8.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style="background-color: #ff6600">{{gigDays.9.date|date:"M d"}}<br /><br /></div>
+	<div class="span2"></div>
+	</div>
+	<div class="row"><div class="span9">&nbsp;</div></div>
+	<div class="row">
+	<div class="span1" style = "background-color: #ff6600">{{gigDays.10.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style = "background-color: #ff6600">{{gigDays.11.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style = "background-color: #ff6600">{{gigDays.12.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style = "background-color: #ff6600">{{gigDays.13.date|date:"M d"}}<br /><br /></div>
+	<div class="span1" style = "background-color: #ff6600">{{gigDays.14.date|date:"M d"}}<br /><br /></div>
+	<div class="span4"></div>
+	</div>
+	<div class="row">
+	<div class="span9">
+	<table width="100%" cellpadding="10">
+	<tr>
+	<td width="14.2%">Mon</td><td width="14.2%">Tue</td><td width=14.2%>Wed</td><td width=14.2%>Thurs</td><td width=14.2%>Fri</td><td width=14.2%>Sat</td><td width=14.2%>Sun</td>
+	</tr>
+	<tr>
+	<td></td><td></td><td></td><td></td>
+	<td style="background-color:#ff6600">{{gigDays.0.date|date:"d"}}<br />
+	{% for a in test %}
+		{{a.artist}}
+	{% endfor %}
+
+	<br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.1.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.2.date|date:"d"}}<br /><br /><br /></td>
+	</tr>
+	<tr><td colspan="7"></td></tr>
+	<tr>
+	<td style="background-color:#ff6600">{{gigDays.3.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.4.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.5.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.6.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.7.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.8.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.9.date|date:"d"}}<br /><br /><br /></td>
+
+	</tr>
+		<tr><td colspan="7"></td></tr>
+
+	<tr>
+	<td style="background-color:#ff6600">{{gigDays.3.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.4.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.5.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.6.date|date:"d"}}<br /><br /><br /></td>
+	<td style="background-color:#ff6600">{{gigDays.7.date|date:"d"}}<br /><br /><br /></td>
+	<td colspan=2></td>
+	</tr>
+	</table>
+	</div>
+	</div>
+
 {% endif %}
 
 {% endblock %}

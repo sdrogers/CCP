@@ -37,6 +37,7 @@ class GigDay(models.Model):
 		return self.dayOfTheWeek
 
 class Gig(models.Model):
+	title = models.CharField(max_length=1024)
 	artist = models.ForeignKey(Artist)
 	date = models.ForeignKey(GigDay)
 	time = models.TimeField()
@@ -55,7 +56,7 @@ class Gig(models.Model):
 	emergency_field = models.CharField(max_length = 10240,default = "empty")
 
 	def __unicode__(self):
-		return self.artist
+		return self.title
 
 
 
