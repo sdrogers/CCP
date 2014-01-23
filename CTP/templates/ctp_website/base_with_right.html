@@ -14,11 +14,11 @@
 	
   	
   	{% for g in GigDay %}
-  	<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{g.0.dayOfTheWeek}} June {{g.0.date|date:"d"}}</a>
+  	<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}">{{g.0.dayOfTheWeek}} June {{g.0.date|date:"d"}}</a>
   	{% if g.1 %}
   	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
   	{% for l in g.1 %}
-    <li><a href="">{{l.title}}</a></li>
+    <li><a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a></li>
     {% endfor %}
   </ul>
   {% endif %}
