@@ -1,20 +1,35 @@
-{% extends 'ctp_website/base.html' %}
+{% extends 'ctp_website/base_with_right.html' %}
 
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
 {% block bodyblock %}
+	{% if gig %}
+		<h3>{{gig.title}}: {{gig.date.dayOfTheWeek}} {{gig.date.date|date:"M d"}}, {{gig.time}}</h3>
+		<h4>Venue: <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
+		<h4>Price: {{gig.price}}</h4>
+		<hr>
+		{% if image1 %}
+					<div style="float:right;text-align:right;font-size:12px"><img src = "{{image1.0}}" width="{{image1.1}}">{% if image1.2 %}<br />Credit: {{image1.2}}{% endif %}</div>
+				{% endif %}
+		{% if musicians %}
+		<h4>Musicians:</h4>
+		<div>{% autoescape off %}{{gig.musicians}}{% endautoescape %}</div>
+		<hr>
+		{% endif %}
+		{% if programme %}
+		<h4>Programme:</h4>
+		<div>{% autoescape off %}{{programme}}{% endautoescape %}</div>
+		<hr>
+		{% endif %}
+		{% if bio %}
+		<h4>Biography:</h4>
+			<div>
+				{{bio|linebreaksbr}}
+			</div>
+		{% endif %}
+	{% else %}
+	No such gig!
+	{% endif %}
 
 {% endblock %}
 
-{% block rightmenu %}
-<b>Jump to a day:</b>
-{% if GigDay %}
-	<ul class="rightlist">
-	{% for g in GigDay %}
-		<li><A href="/ctp_website/day/{{g.url}}">{{g.dayOfTheWeek}} June {{g.date|date:"d"}}</A></li>
-	{% endfor %}
-	</ul>
-{% else %}
-No gig days
-{% endif %}
-{% endblock %}

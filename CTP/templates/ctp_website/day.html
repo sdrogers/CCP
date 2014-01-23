@@ -1,4 +1,4 @@
-{% extends 'ctp_website/base.html' %}
+{% extends 'ctp_website/base_with_right.html' %}
 
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
@@ -6,11 +6,10 @@
 {% if day %}
 
 <h3>{{day.dayOfTheWeek}} {{day.date|date:"M d"}}</h3>
-
 {% if gigs %}
 Click on a gig for more information:<br />
 &nbsp;<br/>
-	<ul>
+	<ul class="giglist">
 	{% for gig in gigs %}
 		<li><a href="/ctp_website/gig/{{gig.url}}">{{gig.artist_name}}, {{gig.time}}, {{gig.price}}</a>, <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></li>
 	{% endfor %}
@@ -24,15 +23,3 @@ No gigs today!
 <hr>
 {% endblock %}
 
-{% block rightmenu %}
-<b>Jump to a day:</b>
-{% if GigDay %}
-	<ul class="rightlist">
-	{% for g in GigDay %}
-		<li><A href="/ctp_website/day/{{g.url}}">{{g.dayOfTheWeek}} June {{g.date|date:"d"}}</A></li>
-	{% endfor %}
-	</ul>
-{% else %}
-No gig days
-{% endif %}
-{% endblock %}

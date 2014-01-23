@@ -61,21 +61,32 @@ def genre(request,genre_name):
 def about(request):
 	context =  RequestContext(request)
 	d = GigDay.objects.order_by('date')
-	context_dict = {'GigDay': d}
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/about.html',context_dict,context)
 
 def programme(request):
 	context = RequestContext(request)
-	g = GigDay.objects.order_by('date')
-	context_dict = {'gigDays':g}	
-	these = Gig.objects.filter(date = g[0])
-	context_dict['test'] = these
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/programme.html',context_dict,context)
 
 def day(request,day_url):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
-	context_dict = {'GigDay': d}
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+
 	try:
 		d = GigDay.objects.get(url = day_url)
 		g = Gig.objects.filter(date = d).order_by('time')
@@ -89,10 +100,27 @@ def day(request,day_url):
 def gig(request,gig_url):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
-	context_dict = {'GigDay': d}
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
 	try:
 		g = Gig.objects.get(url = gig_url)
 		context_dict['gig'] = g
+		if g.artist_bio != "empty":
+			context_dict['bio'] = g.artist_bio
+		if g.musicians != "empty":
+			context_dict['musicians'] = g.musicians
+		if g.image_url != "empty":
+			image1 = [g.image_url]
+			image1 = image1 + [g.image_width]
+			if g.image_credit != "empty":
+				image1 = image1 + [g.image_credit]	
+			context_dict["image1"] = image1
+		if g.programme != "empty":
+			context_dict["programme"] = g.programme
+
 	except:
 		pass
 
@@ -102,7 +130,11 @@ def gig(request,gig_url):
 def venue(request,venue_url):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
-	context_dict = {'GigDay': d}
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
 	try:
 		v = Venue.objects.get(url = venue_url)
 		context_dict['venue'] = v
