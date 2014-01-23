@@ -1,12 +1,13 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from ctp_website.models import Artist,Gig,GigDay
+from ctp_website.models import Gig,GigDay,Venue
 
 
 def index(request):
 	context = RequestContext(request)
-	context_dict = {'hello':"hello"}
+	d = GigDay.objects.order_by('date')
+	context_dict = {'GigDay': d}
 	return render_to_response('ctp_website/index.html',context_dict,context)
 
 def artist(request,artist_name_url):
@@ -59,14 +60,53 @@ def genre(request,genre_name):
 
 def about(request):
 	context =  RequestContext(request)
-	return render_to_response('ctp_website/about.html')
+	d = GigDay.objects.order_by('date')
+	context_dict = {'GigDay': d}
+	return render_to_response('ctp_website/about.html',context_dict,context)
 
 def programme(request):
 	context = RequestContext(request)
 	g = GigDay.objects.order_by('date')
-	print g
 	context_dict = {'gigDays':g}	
 	these = Gig.objects.filter(date = g[0])
 	context_dict['test'] = these
-	print these
 	return render_to_response('ctp_website/programme.html',context_dict,context)
+
+def day(request,day_url):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	context_dict = {'GigDay': d}
+	try:
+		d = GigDay.objects.get(url = day_url)
+		g = Gig.objects.filter(date = d).order_by('time')
+		context_dict["day"] = d
+		context_dict['gigs'] = g
+	except:
+		pass
+
+	return render_to_response('ctp_website/day.html',context_dict,context)
+
+def gig(request,gig_url):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	context_dict = {'GigDay': d}
+	try:
+		g = Gig.objects.get(url = gig_url)
+		context_dict['gig'] = g
+	except:
+		pass
+
+	return render_to_response('ctp_website/gig.html',context_dict,context)
+
+
+def venue(request,venue_url):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	context_dict = {'GigDay': d}
+	try:
+		v = Venue.objects.get(url = venue_url)
+		context_dict['venue'] = v
+	except:
+		pass
+
+	return render_to_response('ctp_website/venue.html',context_dict,context)

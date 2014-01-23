@@ -11,10 +11,12 @@
       }
       .rightlist {
       	list-style-type: none;
+      	padding-left: 0;
+      	margin-left: 0;
       }
       .rightlist li a {
       	text-decoration: none;
-      	color: #666666;
+      	color: #999999;
       }
       .rightlist li a:hover {
       	color: #000000;
@@ -26,7 +28,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="span12" style="text-align:right;background-color:#cccccc">
+			<div class="span12" style="text-align:center;">
 				<img src="{% static 'ctp_logo.jpg' %}" alt="main logo" />
 			</div>
 		</div>
@@ -51,14 +53,7 @@
 			<!-- </div> -->
 			</div>
 			<div class="span2">
-				<ul class="rightlist">
-					<li><A href="">Day 1</A></li>
-					<li><a href="">Day 2</a></li>
-					<li><a href="">Day 1</a></li>
-					<li><a href="">Day 2</a></li>
-					<li><a href="">Day 1</a></li>
-					<li><a href="">Day 2</a></li>					
-				</ul>
+			{% block rightmenu %}Menu here{% endblock %}
 			</div>
 		</div>
 	
