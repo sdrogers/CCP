@@ -13,18 +13,18 @@
 				{% endif %}
 		{% if musicians %}
 		<h4>Musicians:</h4>
-		<div>{% autoescape off %}{{gig.musicians}}{% endautoescape %}</div>
+		<div>{{gig.musicians|safe|linebreaksbr}}</div>
 		<hr>
 		{% endif %}
 		{% if programme %}
 		<h4>Programme:</h4>
-		<div>{% autoescape off %}{{programme}}{% endautoescape %}</div>
+		<div>{{programme|safe|linebreaksbr}}</div>
 		<hr>
 		{% endif %}
 		{% if bio %}
 		<h4>Biography:</h4>
 			<div>
-				{{bio|linebreaksbr}}
+				{{bio|safe|linebreaksbr}}
 			</div>
 		{% endif %}
 	{% else %}
