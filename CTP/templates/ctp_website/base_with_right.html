@@ -7,14 +7,14 @@
 {% if GigDay %}
 	<ul class="rightlist">
 	{% for g in GigDay %}
-		<li rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}"><A href="/ctp_website/day/{{g.0.url}}">{{g.0.dayOfTheWeek}} June {{g.0.date|date:"d"}}</A></li>
+		<li rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}"><A href="/ctp_website/day/{{g.0.url}}">{{g.0.date|date:"l F jS"}}</A></li>
 	{% endfor %}
 	</ul>
 
 	
   	
   	{% for g in GigDay %}
-  	<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}">{{g.0.dayOfTheWeek}} June {{g.0.date|date:"d"}}</a>
+  	<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}">{{g.0.date|date:"l F jS"}}</a>
   	{% if g.1 %}
   	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
   	{% for l in g.1 %}
