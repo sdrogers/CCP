@@ -11,6 +11,9 @@ class DayAdmin(admin.ModelAdmin):
 
 class CabModelForm( forms.ModelForm ):
     artist_bio = forms.CharField( widget=forms.Textarea )
+    programme = forms.CharField(widget = forms.Textarea)
+    about_programme = forms.CharField(widget = forms.Textarea)
+    musicians = forms.CharField(widget = forms.Textarea)
     class Meta:
         model = Gig
 
