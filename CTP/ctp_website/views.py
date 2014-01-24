@@ -14,6 +14,56 @@ def index(request):
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/index.html',context_dict,context)
 
+
+def tickets(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/tickets.html',context_dict,context)
+
+
+def contact(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/contact.html',context_dict,context)
+
+
+def support(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/support.html',context_dict,context)
+
+
+
+def venues(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+
+	v = Venue.objects.order_by('name')
+	context_dict['venues'] = v
+
+	return render_to_response('ctp_website/venues.html',context_dict,context)
+
+
 def artist(request,artist_name_url):
 	context = RequestContext(request)
 	context_dict = {'artist_name_url':artist_name_url}

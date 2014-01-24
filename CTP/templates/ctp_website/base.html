@@ -71,7 +71,7 @@
         padding: 3px 3px 3px 3px;
       }
       .progtable .full:hover {
-        background-color: #CCCCCC;
+        background-color: #FC8F58;
       }
       .dropdown-menu li a{
         color: #000000;
@@ -95,19 +95,25 @@
 		<div class="row">
 
 			<div class="span3 bs-docs-sidebar">
-				<ul class="nav nav-list bs-docs-sidenav" style="list-style-type: none">
-				<li><a href="/ctp_website">Home</a></li>
-				<li><a href="/ctp_website/about"><img src="{% static 'aboutus.png' %}" alt="About"></a></li>
-				<li><a href="/ctp_website/programme"><img src="{% static 'programme.png' %}" alt="Programme"></a></li>
-				<li><a href="/ctp_website/artists"><img src="{% static 'artists.png' %}" alt="Artists"></a></li>
+				<ul style="list-style-type: none">
+				<li><a href="/ctp_website/about"><img src="{% static 'aboutus.jpg' %}" alt="About"></a></li>
+				<li><a href="/ctp_website/programme"><img src="{% static 'programme.jpg' %}" alt="Programme"></a></li>
+				<li><a href="/ctp_website/tickets"><img src="{% static 'tickets.jpg' %}" alt="Artists"></a></li>
+        <li><a href="/ctp_website/venues"><img src="{% static 'venues.jpg' %}" alt="Artists"></a></li>
+        <li><a href="/ctp_website/contact"><img src="{% static 'contactus.jpg' %}" alt="Artists"></a></li>
+        <li><a href="/ctp_website/support"><img src="{% static 'supportus.jpg' %}" alt="Artists"></a></li>
+        <hr>
+        <li><a href="http://www.westendfestival.co.uk/"><img src="{% static 'festival.jpg' %}"></a>
 				</ul>
-        <a class="twitter-timeline" href="https://twitter.com/CottierChamber" data-widget-id="334449841298096129">Tweets by @CottierChamber</a>
+       <br /><br /><hr>
+       <a class="twitter-timeline" href="https://twitter.com/CottierChamber" data-widget-id="334449841298096129">Tweets by @CottierChamber</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</div>
 			<div class="span7">
-			<!-- <div class="hero-unit"> -->
 			{% block bodyblock %}Placeholder body{% endblock %}		
-			<!-- </div> -->
+      <br />
+      <hr>
+      <img src="{% static 'strip.jpg' %}">
 			</div>
 			<div class="span2">
 			{% block rightmenu %}Menu here{% endblock %}

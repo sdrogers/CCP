@@ -24,189 +24,58 @@
 <TD width=13% height=150px VALIGN="top" ALIGN="right">&nbsp;</TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right">&nbsp;</TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right">
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.0.0.date|date:"jS F"}}<br />{% for l in GigDay.0.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.0.1 %}
-  			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-  			{% for l in GigDay.0.1 %}
-    			<li><a style="color:#333333" href="/ctp_website/gig/{{l.url}}">{{l.title}}</a></li>
-    		{% endfor %}
-  			</ul>
-  		{% endif %}
-	</div></TD>
-<TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.1.0.date|date:"jS F"}} <br />{% for l in GigDay.1.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.1.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.1.1 %}
-				<li><A style="color:#333333" href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.0.0.url}}">{{GigDay.0.0.date|date:"jS F"}}</a><br />{% for l in GigDay.0.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
+
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.2.0.date|date:"jS F"}} <br />{% for l in GigDay.2.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.2.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.2.1 %}
-				<li><A style="color:#333333" href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.1.0.url}}">{{GigDay.1.0.date|date:"jS F"}}</a><br />{% for l in GigDay.1.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+</TD>
+
+<TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
+		<a href="/ctp_website/day/{{GigDay.2.0.url}}">{{GigDay.2.0.date|date:"jS F"}}</a><br />{% for l in GigDay.2.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD width=9%>&nbsp;</TD>
 </tr>
 <tr>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.3.0.date|date:"jS F"}} <br />{% for l in GigDay.3.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.3.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.3.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.3.0.url}}">{{GigDay.3.0.date|date:"jS F"}}</a><br />{% for l in GigDay.3.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+</TD>
+
+<TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
+		<a href="/ctp_website/day/{{GigDay.4.0.url}}">{{GigDay.4.0.date|date:"jS F"}}</a><br />{% for l in GigDay.4.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.4.0.date|date:"jS F"}} <br />{% for l in GigDay.4.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.4.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.4.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.5.0.url}}">{{GigDay.5.0.date|date:"jS F"}}</a><br />{% for l in GigDay.5.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.5.0.date|date:"jS F"}} <br />{% for l in GigDay.5.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.5.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.5.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.6.0.url}}">{{GigDay.6.0.date|date:"jS F"}}</a><br />{% for l in GigDay.6.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.6.0.date|date:"jS F"}} <br />{% for l in GigDay.6.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.6.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.6.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.7.0.url}}">{{GigDay.7.0.date|date:"jS F"}}</a><br />{% for l in GigDay.7.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.7.0.date|date:"jS F"}} <br />{% for l in GigDay.7.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.7.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.7.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.8.0.url}}">{{GigDay.8.0.date|date:"jS F"}}</a><br />{% for l in GigDay.8.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.8.0.date|date:"jS F"}} <br />{% for l in GigDay.8.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.8.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.8.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
-</TD>
-<TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.9.0.date|date:"jS F"}} <br />{% for l in GigDay.9.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.9.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.9.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.9.0.url}}">{{GigDay.9.0.date|date:"jS F"}}</a><br />{% for l in GigDay.9.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <td width=9%>&nbsp;</td>
 </tr>
 <tr>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.10.0.date|date:"jS F"}} <br />{% for l in GigDay.10.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.10.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.10.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title|slice:":10"}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.10.0.url}}">{{GigDay.10.0.date|date:"jS F"}}</a><br />{% for l in GigDay.10.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.11.0.date|date:"jS F"}} <br />{% for l in GigDay.11.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.11.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.11.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.11.0.url}}">{{GigDay.11.0.date|date:"jS F"}}</a><br />{% for l in GigDay.11.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.12.0.date|date:"jS F"}} <br />{% for l in GigDay.12.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.12.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.12.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.12.0.url}}">{{GigDay.12.0.date|date:"jS F"}}</a><br />{% for l in GigDay.12.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.13.0.date|date:"jS F"}} <br />{% for l in GigDay.13.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.13.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.13.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.13.0.url}}">{{GigDay.13.0.date|date:"jS F"}}</a><br />{% for l in GigDay.13.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-	<div class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{GigDay.14.0.date|date:"jS F"}} <br />{% for l in GigDay.14.1 %}{{l.title}}<br />{% endfor %}</a>
-		{% if GigDay.14.1 %}
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			{% for l in GigDay.14.1 %}
-				<li><A href="/ctp_website/gig/{{l.url}}">{{l.title}}</A></li>
-			{% endfor %}
-			</ul>
-		{% endif %}
-		</div>
+		<a href="/ctp_website/day/{{GigDay.14.0.url}}">{{GigDay.14.0.date|date:"jS F"}}</a><br />{% for l in GigDay.14.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right"> &nbsp;</TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right"> &nbsp;</TD>
@@ -224,7 +93,7 @@ No gigs in the database!
 		<ul class="giglist">
 		{% if g.1 %}
 			{% for l in g.1 %}
-				<li><a href="/ctp_website/gig/{{l.url}}">{{l.title}}, {{l.time}}, {{l.price}}</a>, <a href="/ctp_website/venue/{{l.venue.url}}">{{l.venue.name}}</a></li>
+				<li><a href="/ctp_website/gig/{{l.url}}"><a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a>, {{l.time}}, {{l.price}}</a>, <a href="/ctp_website/venue/{{l.venue.url}}">{{l.venue.name}}</a></li>
 			{% endfor %}
 		{% else %}
 		<li>No gigs on this day</li>

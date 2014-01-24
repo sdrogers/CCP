@@ -1,0 +1,14 @@
+{% extends 'ctp_website/base_with_right.html' %}
+
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+<h3>Venues</h3>
+{% if venues %}
+	<ul class="giglist">
+	{% for v in venues %}
+		<li><A href="/ctp_website/venue/{{v.url}}">{{v.name}}</A></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+{% endblock %}
