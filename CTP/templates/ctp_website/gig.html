@@ -4,29 +4,74 @@
 
 {% block bodyblock %}
 	{% if gig %}
-		<h3>{{gig.title}}: {{gig.date.dayOfTheWeek}} {{gig.date.date|date:"M d"}}, {{gig.time}}</h3>
+		<h3>{{gig.title}}</h3>
+		<h4>{{gig.date.date|date:"l F jS"}}, {{gig.time}}
 		<h4>Venue: <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
-		<h4>Price: {{gig.price}}</h4>
 		<hr>
 		{% if image1 %}
-					<div style="float:right;text-align:right;font-size:12px"><img src = "{{image1.0}}" width="{{image1.1}}">{% if image1.2 %}<br />Credit: {{image1.2}}{% endif %}</div>
-				{% endif %}
-		{% if musicians %}
-		<h4>Musicians:</h4>
-		<div>{{gig.musicians|safe|linebreaksbr}}</div>
-		<hr>
+			<div style="float:right;text-align:right;font-size:12px"><img src = "{{image1.0}}" width="{{image1.1}}">{% if image1.2 %}<br />Credit: {{image1.2}}{% endif %}</div>
 		{% endif %}
 		{% if programme %}
-		<h4>Programme:</h4>
-		<div>{{programme|safe|linebreaksbr}}</div>
-		<hr>
+			<h4>Programme:</h4>
+			<div>{{programme|safe|linebreaksbr}}</div>
 		{% endif %}
+
+		{% if about_programme %}
+			<br />
+			<div>{{about_programme|safe|linebreaksbr}}</div>
+		{% endif %}
+
+		{% if personal_url %}
+			<div><A href="{{personal_url}}">Artist website</A></div>
+		{% endif %}
+
+		{% if musicians %}
+		<hr>
+			<h4>Musicians:</h4>
+				<div>{{gig.musicians|safe|linebreaksbr}}</div>
+			<hr>
+		{% endif %}
+
+		<h4>Price:</h4>
+		<div> {{gig.price}}</div>
+		{% if box_office_url %}
+		<div>Click <a href="{{box_office_url}}">here</a> to buy tickets online.</div>
+		{% endif %}
+		{% if box_office_url2 %}
+		<div>Click <a href="{{box_office_url2}}">here</a> for box office information.</div>
+		{% endif %}
+		{% if special_offers %}
+		<br />
+		<div>Special offers:</div>
+		<ul>
+			<li>{{special_offers}}</li>
+				{% if special_offers2 %}
+			<li>{{special_offers2}}</li>
+			{% endif %}
+		</ul>
+		{% endif %}
+		
 		{% if bio %}
+		<hr>
 		<h4>Biography:</h4>
 			<div>
 				{{bio|safe|linebreaksbr}}
 			</div>
 		{% endif %}
+
+		{% if review_url %}
+			<hr>
+			<a href="{{review_url}}">Review!</a>
+		{% endif %}
+		{% if review_url2 %}
+			<hr>
+			<a href="{{review_url2}}">Review!</a>
+		{% endif %}
+		{% if review_url3 %}
+			<hr>
+			<a href="{{review_url3}}">Review!</a>
+		{% endif %}
+
 	{% else %}
 	No such gig!
 	{% endif %}

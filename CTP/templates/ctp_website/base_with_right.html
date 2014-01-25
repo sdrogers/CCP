@@ -6,7 +6,7 @@
 <b>Jump to a day:</b>
 	{% if GigDay %}
   	{% for g in GigDay %}
-  	 <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="left" title="{% if g.1 %}| {% for l in g.1 %}{{l.title}} | {% endfor %}{% else %} empty {%endif%}">{{g.0.date|date:"l F jS"}}</a>
+  	 <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="top" title="{% if g.1 %}|{% for l in g.1 %}&nbsp;{{l.title}} |{% endfor %}{% else %} empty {%endif%}">{{g.0.date|date:"l F jS"}}</a>
   	   {% if g.1 %}
   	     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           {% for l in g.1 %}

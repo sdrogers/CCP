@@ -174,6 +174,26 @@ def gig(request,gig_url):
 			context_dict["image1"] = image1
 		if g.programme != "empty":
 			context_dict["programme"] = g.programme
+		if g.about_programme != "empty":
+			context_dict["about_programme"] = g.about_programme
+		if g.personal_url != "empty":
+			context_dict["personal_url"] = g.personal_url
+		if g.box_office_url != "empty":
+			context_dict["box_office_url"] = g.box_office_url
+		if g.box_office_url2 != "empty":
+			context_dict["box_office_url2"] = g.box_office_url2
+		if g.special_offers != "empty":
+			context_dict["special_offers"] = g.special_offers
+		if g.special_offers2 != "empty":
+			context_dict["special_offers2"] = g.special_offers2
+		if g.review_url != "empty":
+			context_dict["review_url"] = g.review_url
+		if g.review_url2 != "empty":
+			context_dict["review_url2"] = g.review_url2
+		if g.review_url3 != "empty":
+			context_dict["review_url3"] = g.review_url3
+
+
 
 	except:
 		pass
