@@ -1,11 +1,24 @@
-{% extends 'ctp_website/base_with_right.html' %}
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
 
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
 {% block bodyblock %}
 {% if venue %}
 <h3>{{venue.name}}</h3>
+{% if image_url %}
+<div style="float:right;text-align:right;font-size:12px"><img src = "{{image_url}}" width="{{image_width}}">{% if image_credit %}<br />Credit: {{ image_credit }}{% endif %}</div>			
+{% endif %}
+<div style="font-size:medium;">{{venue.address|safe|linebreaksbr}}</div>
+<br />
+<div style="font-size:medium;">Tel: {{venue.contact_number}}</div>
+<br />
+<div>{{venue.info|safe|linebreaksbr}}</div>
 <hr>
+{% if image_url2 %}
+<div style="font-size:12px"><img src = "{{image_url2}}" width="{{image_width2}}">{% if image_credit2 %}<br />Credit: {{ image_credit2 }}{% endif %}</div>			
+{% endif %}
+
+
 {% endif %}
 {% endblock %}
 

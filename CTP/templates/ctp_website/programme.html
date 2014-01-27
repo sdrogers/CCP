@@ -1,4 +1,4 @@
-{% extends 'ctp_website/base_with_right.html' %}
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
 
 {% block titleblock %}Programme{% endblock %}
 
@@ -24,58 +24,58 @@
 <TD width=13% height=150px VALIGN="top" ALIGN="right">&nbsp;</TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right">&nbsp;</TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right">
-		<a href="/ctp_website/day/{{GigDay.0.0.url}}">{{GigDay.0.0.date|date:"jS F"}}</a><br />{% for l in GigDay.0.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.0.0.url}}">{{GigDay.0.0.date|date:"j"}}</a></div>{% for l in GigDay.0.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.1.0.url}}">{{GigDay.1.0.date|date:"jS F"}}</a><br />{% for l in GigDay.1.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.1.0.url}}">{{GigDay.1.0.date|date:"j"}}</a></div>{% for l in GigDay.1.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.2.0.url}}">{{GigDay.2.0.date|date:"jS F"}}</a><br />{% for l in GigDay.2.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.2.0.url}}">{{GigDay.2.0.date|date:"j"}}</a></div>{% for l in GigDay.2.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD width=9%>&nbsp;</TD>
 </tr>
 <tr>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.3.0.url}}">{{GigDay.3.0.date|date:"jS F"}}</a><br />{% for l in GigDay.3.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.3.0.url}}">{{GigDay.3.0.date|date:"j"}}</a></div>{% for l in GigDay.3.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.4.0.url}}">{{GigDay.4.0.date|date:"jS F"}}</a><br />{% for l in GigDay.4.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.4.0.url}}">{{GigDay.4.0.date|date:"j"}}</a></div>{% for l in GigDay.4.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.5.0.url}}">{{GigDay.5.0.date|date:"jS F"}}</a><br />{% for l in GigDay.5.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.5.0.url}}">{{GigDay.5.0.date|date:"j"}}</a></div>{% for l in GigDay.5.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.6.0.url}}">{{GigDay.6.0.date|date:"jS F"}}</a><br />{% for l in GigDay.6.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.6.0.url}}">{{GigDay.6.0.date|date:"j"}}</a></div>{% for l in GigDay.6.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.7.0.url}}">{{GigDay.7.0.date|date:"jS F"}}</a><br />{% for l in GigDay.7.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.7.0.url}}">{{GigDay.7.0.date|date:"j"}}</a></div>{% for l in GigDay.7.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.8.0.url}}">{{GigDay.8.0.date|date:"jS F"}}</a><br />{% for l in GigDay.8.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.8.0.url}}">{{GigDay.8.0.date|date:"j"}}</a></div>{% for l in GigDay.8.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.9.0.url}}">{{GigDay.9.0.date|date:"jS F"}}</a><br />{% for l in GigDay.9.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.9.0.url}}">{{GigDay.9.0.date|date:"j"}}</a></div>{% for l in GigDay.9.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <td width=9%>&nbsp;</td>
 </tr>
 <tr>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.10.0.url}}">{{GigDay.10.0.date|date:"jS F"}}</a><br />{% for l in GigDay.10.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.10.0.url}}">{{GigDay.10.0.date|date:"j"}}</a></div><br />{% for l in GigDay.10.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.11.0.url}}">{{GigDay.11.0.date|date:"jS F"}}</a><br />{% for l in GigDay.11.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.11.0.url}}">{{GigDay.11.0.date|date:"j"}}</a></div><br />{% for l in GigDay.11.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.12.0.url}}">{{GigDay.12.0.date|date:"jS F"}}</a><br />{% for l in GigDay.12.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.12.0.url}}">{{GigDay.12.0.date|date:"j"}}</a></div><br />{% for l in GigDay.12.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.13.0.url}}">{{GigDay.13.0.date|date:"jS F"}}</a><br />{% for l in GigDay.13.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.13.0.url}}">{{GigDay.13.0.date|date:"j"}}</a></div><br />{% for l in GigDay.13.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD class="full" width=13% height=150px VALIGN="top" ALIGN="right"> 
-		<a href="/ctp_website/day/{{GigDay.14.0.url}}">{{GigDay.14.0.date|date:"jS F"}}</a><br />{% for l in GigDay.14.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
+		<div style="text-align:left;font-size:large;"><a href="/ctp_website/day/{{GigDay.14.0.url}}">{{GigDay.14.0.date|date:"j"}}</a></div><br />{% for l in GigDay.14.1 %}<a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a><br />{% endfor %}</a>
 </TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right"> &nbsp;</TD>
 <TD width=13% height=150px VALIGN="top" ALIGN="right"> &nbsp;</TD>

@@ -161,7 +161,11 @@ def gig(request,gig_url):
 	context_dict = {'GigDay': l}
 	try:
 		g = Gig.objects.get(url = gig_url)
+		setattr(g,'hit_count',g.hit_count + 1)
+		g.save()
 		context_dict['gig'] = g
+
+		print g.hit_count
 		if g.artist_bio != "empty":
 			context_dict['bio'] = g.artist_bio
 		if g.musicians != "empty":
@@ -172,6 +176,13 @@ def gig(request,gig_url):
 			if g.image_credit != "empty":
 				image1 = image1 + [g.image_credit]	
 			context_dict["image1"] = image1
+		if g.image_url2 != "empty":
+			image2 = [g.image_url2]
+			image2 = image2 + [g.image_width2]
+			if g.image_credit2 != "empty":
+				image2 = image2 + [g.image_credit2]	
+			context_dict["image2"] = image2
+
 		if g.programme != "empty":
 			context_dict["programme"] = g.programme
 		if g.about_programme != "empty":
@@ -212,6 +223,18 @@ def venue(request,venue_url):
 	try:
 		v = Venue.objects.get(url = venue_url)
 		context_dict['venue'] = v
+		if v.image_url != "empty":
+			context_dict["image_url"] = v.image_url
+			context_dict["image_width"] = v.image_width
+		if v.image_credit != "empty":
+			context_dict["image_credit"] = v.image_credit
+		if v.image_url2 != "empty":
+			context_dict["image_url2"] = v.image_url2
+			context_dict["image_width2"] = v.image_width2
+		if v.image_credit2 != "empty":
+			context_dict["image_credit2"] = v.image_credit2
+
+
 	except:
 		pass
 
