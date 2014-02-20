@@ -64,8 +64,16 @@
       .progtable .full {
                 background-color: #EA6F36;
                 color: #CCCCCC;
-                font-size: x-small;
+                font-size: small;
 
+      }
+      .progtable .dance {
+                background-color: #4182E1;
+                color:#CCCCCC;
+                font-size: x-small;
+      }
+      .progtable .dance a {
+        color: #FFFFFF;
       }
       .progtable .full a {
         color: #FFFFFF;
@@ -75,6 +83,9 @@
       }
       .progtable .full:hover {
         background-color: #FC8F58;
+      }
+      .progtable .dance:hover {
+        background-color: #2E9AFE;
       }
       .dropdown-menu li a{
         color: #000000;
@@ -99,12 +110,14 @@
 
 			<div class="span3 bs-docs-sidebar">
 				<ul style="list-style-type: none">
+        <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website"><img src="{% static 'home.jpg' %}" alt="Home"></a></li>        
 				<li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/about"><img src="{% static 'aboutus.jpg' %}" alt="About"></a></li>
 				<li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/programme"><img src="{% static 'programme.jpg' %}" alt="Programme"></a></li>
 				<li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/tickets"><img src="{% static 'tickets.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/venues"><img src="{% static 'venues.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/contact"><img src="{% static 'contactus.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/support"><img src="{% static 'supportus.jpg' %}" alt="Artists"></a></li>
+        <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/dance"><img src="{% static 'dance.jpg' %}" alt="Dance"></a></li>
         <br />
         <li><a href="http://www.westendfestival.co.uk/"><img src="{% static 'festival.jpg' %}" width=150px></a></li>
         <br />

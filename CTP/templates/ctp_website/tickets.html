@@ -1,8 +1,67 @@
 {% extends 'ctp_website/base_with_right_no_twitter.html' %}
-
+{% load static %}
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
 {% block bodyblock %}
 <h3>Tickets</h3>
+<h4>For advance bookings:</h4>
+<div style="margin-left:20px"><p><b>Online</b></p>
+<p>If you would like to buy tickets for multiple performances, you can do this below, otherwise there is an individual link on each concert page.  Tickets can be collected from the box office, printed off at home, posted (£1.50 extra) or sent directly to a mobile phone (50p extra).  </p>
+
+<p><b>Telephone bookings:</b></p>
+<p>Available on  0330 *** tbc* Monday – Friday 9am – 7pm, Saturday 9am – 5pm.  Telephone bookings incur an extra charge of £1.50.</p>
+
+<p><b>Box office:</b></p>
+<p>There will be a box office situated in Hillhead Library during May and June, open Monday – Saturday, 10am-5pm.  Please note that in person ticket sales will not be available before the 1st May.</p>
+</div>
+<p>&nbsp;</p>
+<h4>On the day</h4>
+<div style="margin-left:20px"><p>From the venue at any point from 5pm onwards.  £2 extra per ticket.</p></div>
+<p>&nbsp;</p>
+<h4>Loyalty Card</h4>
+<div style="margin-left:20px"><p>Inspired by coffee houses the world over, we are introducing a loyalty card for our evening series this year.  Get it stamped on your way into the venue, and your 6th concert will be free.  You won’t need to buy a ticket for the free concert, though it is subject to availability, so if you think a concert may sell out, don’t wait!  Some of our concerts have unusual or unfamiliar programmes, so it might be worth taking a risk on one of those as your freebie.</p></div>
+<p>&nbsp;</p>
+<h4>Special offers</h4>
+
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+  		<li class="active">
+    		<a href="#beard" data-toggle="tab">Beard Like Brahms</a>
+  		</li>
+  		<li><a href="#curry" data-toggle="tab">Curry and Quirk</a></li>
+  		<li><a href="#bbq" data-toggle="tab">BBQ for £9</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="beard" style="margin-left:20px">
+		<p>If you have a genuine Brahmsian beard (spot checks may take place!) then you will get in for free. Click <a href="{% static 'blb.pdf' %}" target="new">here</a> for our handy guide.</p>
+		</div>
+		<div class="tab-pane" id="curry" style="margin-left:20px">
+			<p>Dmitri-esque specs will get you free entry to the Currie & Quirk Shostakovich Series, and Currie & Quirk customers will get 2 for 1 entry to the series.  Collect your voucher from Currie & Quirk (142-144 Byres Road, Glasgow).</p>
+		</div>
+		<div class="tab-pane" id="bbq" style="margin-left:20px">
+		<p>Ticketholders for concerts at Cottier’s can take advantage of the Barbeque menu for a reduced price of £9.</p>
+		</div>
+	</div>
+</div>
+<hr>
+<h4>Ticket shop:</h4>
+<!-- Start Ticket Shop App -->
+
+<div id="embedTS_FJEG" style="width:770px;"></div>
+<script type="text/javascript">
+  (function() {
+    var el = document.createElement("script");
+    el.type = "text/javascript";
+    el.async = true;
+    el.src = "http://www.ticketsource.co.uk/ticketshop/FJEG";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+  })();
+</script>
+
+<!-- End Ticket Shop App -->
+
+
 <hr>
 {% endblock %}

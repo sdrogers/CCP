@@ -130,6 +130,25 @@ def programme(request):
 		l = l + [(di,list(Gig.objects.filter(date=di)))]
 
 	context_dict = {'GigDay': l}
+
+	cott = Venue.objects.get(url = "cottiers")
+	cottl = []
+	for di in d:
+		cottl = cottl + [(di,list(Gig.objects.filter(date=di,venue=cott)))]
+	context_dict['cottgigs'] = cottl;
+
+	hunt = Venue.objects.get(url = "hunterian")
+	huntl = []
+	for di in d:
+		huntl = huntl + [(di,list(Gig.objects.filter(date=di,venue=hunt)))]
+	context_dict['huntgigs'] = huntl;
+
+	silas = Venue.objects.get(url = "stsilas")
+	silasl = []
+	for di in d:
+		silasl = silasl + [(di,list(Gig.objects.filter(date=di,venue=silas)))]
+	context_dict['silasgigs'] = silasl;
+
 	return render_to_response('ctp_website/programme.html',context_dict,context)
 
 def day(request,day_url):
@@ -151,6 +170,16 @@ def day(request,day_url):
 
 	return render_to_response('ctp_website/day.html',context_dict,context)
 
+def dance(request):
+	context =  RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/dance.html',context_dict,context)
+
 def gig(request,gig_url):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
@@ -166,6 +195,8 @@ def gig(request,gig_url):
 		context_dict['gig'] = g
 
 		print g.hit_count
+		if g.price != "empty":
+			context_dict['price'] = g.price
 		if g.artist_bio != "empty":
 			context_dict['bio'] = g.artist_bio
 		if g.musicians != "empty":
@@ -223,6 +254,8 @@ def venue(request,venue_url):
 	try:
 		v = Venue.objects.get(url = venue_url)
 		context_dict['venue'] = v
+		if v.contact_number !="empty":
+			context_dict["number"] = v.contact_number
 		if v.image_url != "empty":
 			context_dict["image_url"] = v.image_url
 			context_dict["image_width"] = v.image_width

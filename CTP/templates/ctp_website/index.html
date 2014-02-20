@@ -1,5 +1,15 @@
 {% extends 'ctp_website/base_with_right.html' %}
-
+{% load static %}
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
-{% block bodyblock %}BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah {% endblock %}
+{% block bodyblock %}
+<h2>6th - 20th June 2014</h2>
+<h3>Latest News...</h3>
+<p>2014 <a href="/ctp_website/programme">programme</a> now available</p>
+<hr>
+<p>Navigate with the menu on the left, or jump to a gig using the menu on the right</p>
+<p>Download festival <a href="">brochure</a></p>
+<p>Download festival <a href="{% static 'CCP2014calendar.ics' %}">calendar</a></p>
+<p>Widget will be here</p>
+<p>Soundcloud here</p>
+ {% endblock %}

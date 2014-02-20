@@ -36,9 +36,9 @@
 				<div>{{gig.musicians|safe|linebreaksbr}}</div>
 			<hr>
 		{% endif %}
-
+		{% if price %}
 		<h4>Price:</h4>
-		<div> {{gig.price}}</div>
+		<div> {{price}}</div>
 		{% if box_office_url %}
 		<div>Click <a href="{{box_office_url}}">here</a> to buy tickets online.</div>
 		{% endif %}
@@ -54,8 +54,9 @@
 			<li>{{special_offers2}}</li>
 			{% endif %}
 		</ul>
+		<div>See the <a href="/ctp_website/tickets">tickets</a> page for more information</div>
 		{% endif %}
-		
+		{% endif %}
 		{% if bio %}
 		<hr>
 		<h4>Biography:</h4>

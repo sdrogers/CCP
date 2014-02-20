@@ -10,8 +10,10 @@
 {% endif %}
 <div style="font-size:medium;">{{venue.address|safe|linebreaksbr}}</div>
 <br />
-<div style="font-size:medium;">Tel: {{venue.contact_number}}</div>
+{% if number %}
+<div style="font-size:medium;">Tel: {{number}}</div>
 <br />
+{% endif %}
 <div>{{venue.info|safe|linebreaksbr}}</div>
 <hr>
 {% if image_url2 %}
