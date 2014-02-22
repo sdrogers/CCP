@@ -9,11 +9,16 @@
 		<h4>Venue: <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
 		<hr>
 		{% if image1 %}
-			<div style="float:right;text-align:right;font-size:12px"><img src = "{{image1.0}}" width="{{image1.1}}">{% if image1.2 %}<br />Credit: {{image1.2}}{% endif %}
-			<br />
-			{% if image2 %}
-			<img src="{{image2.0}}" width="{{image2.1}}">{% if image2.2 %}<br />Credit: {{image2.2}}{% endif %}
-			{% endif %}
+			<div style="float:right;text-align:right;font-size:12px">
+				<table>
+					<tr><td>
+					<img src = "{{image1.0}}" width="{{image1.1}}">{% if image1.2 %}<br />Credit: {{image1.2}}{% endif %}</td></tr>
+					{% if image2 %}
+						<tr><td>
+						<img src="{{image2.0}}" width="{{image2.1}}">{% if image2.2 %}<br />Credit: {{image2.2}}{% endif %}
+						</td></tr>
+					{% endif %}
+				</table>
 			</div>
 		{% endif %}
 		{% if programme %}
@@ -37,25 +42,25 @@
 			<hr>
 		{% endif %}
 		{% if price %}
-		<h4>Price:</h4>
-		<div> {{price}}</div>
-		{% if box_office_url %}
-		<div>Click <a href="{{box_office_url}}">here</a> to buy tickets online.</div>
-		{% endif %}
-		{% if box_office_url2 %}
-		<div>Click <a href="{{box_office_url2}}">here</a> for box office information.</div>
-		{% endif %}
-		{% if special_offers %}
-		<br />
-		<div>Special offers:</div>
-		<ul>
-			<li>{{special_offers}}</li>
-				{% if special_offers2 %}
-			<li>{{special_offers2}}</li>
+			<h4>Price:</h4>
+			<div> {{price}}</div>
+			{% if box_office_url %}
+				<div>Click <a href="{{box_office_url}}">here</a> to buy tickets online.</div>
 			{% endif %}
-		</ul>
-		<div>See the <a href="/ctp_website/tickets">tickets</a> page for more information</div>
-		{% endif %}
+			{% if box_office_url2 %}
+				<div>Click <a href="{{box_office_url2}}">here</a> for box office information.</div>
+			{% endif %}
+			{% if special_offers %}
+				<br />
+				<div>Special offers:</div>
+				<ul>
+					<li>{{special_offers}}</li>
+						{% if special_offers2 %}
+					<li>{{special_offers2}}</li>
+					{% endif %}
+				</ul>
+				<div>See the <a href="/ctp_website/tickets">tickets</a> page for more information</div>
+			{% endif %}
 		{% endif %}
 		{% if bio %}
 		<hr>

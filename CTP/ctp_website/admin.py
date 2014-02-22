@@ -27,7 +27,8 @@ class Venue_Admin(admin.ModelAdmin):
 	form = VenueModelForm
 
 class Cab_Admin( admin.ModelAdmin ):
-    form = CabModelForm
+	form = CabModelForm
+	list_display = ('title','artist_name','date','time','url')
 
 admin.site.register(Gig,Cab_Admin)
 admin.site.register(Venue,Venue_Admin)
