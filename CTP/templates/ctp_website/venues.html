@@ -5,11 +5,58 @@
 {% block bodyblock %}
 <h3>Venues</h3>
 {% if venues %}
-	<h4>Click on a venue for more information</h4>
-	<ul class="giglist">
+	<!-- <h4>Click on a venue for more information</h4> -->
+	<!-- <ul class="giglist">
 	{% for v in venues %}
 		<li><A href="/ctp_website/venue/{{v.url}}">{{v.name}}</A></li>
 	{% endfor %}
-	</ul>
+	</ul> -->
 {% endif %}
+
+{% if venues %}
+
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		{% for v in venues %}
+			{% if forloop.first %}
+			<li class="active">
+			{% else %}
+			<li>
+			{% endif %}
+				<a href="#{{v.url}}" data-toggle="tab">{{v.name}}</a>
+			</li>
+		{% endfor %}
+  		<!-- <li class="active"> -->
+	</ul>
+
+	<div class="tab-content">
+		{% for v in venues %}
+			{% if forloop.first %}
+			<div class="tab-pane active" id="{{v.url}}">
+			{% else %}
+			<div class="tab-pane" id="{{v.url}}">
+			{% endif %}
+				<h3>{{v.name}}</h3>
+				{% if v.image_url != "empty" %}
+					<div style="float:right;text-align:right;font-size:12px"><img src = "{{v.image_url}}" width="{{v.image_width}}">{% if image_credit %}<br />Credit: {{ image_credit }}{% endif %}</div>			
+				{% endif %}
+			<div style="font-size:medium;">{{v.address|safe|linebreaksbr}}</div>
+			<br />
+			{% if v.contact_number != "empty" %}
+				<div style="font-size:medium;">Tel: {{v.contact_number}}</div>
+				<br />
+			{% endif %}
+			<div>{{v.info|safe|linebreaksbr}}</div>
+			<hr>
+			{% if v.image_url2 != "empty" %}
+				<div style="font-size:12px"><img src = "{{v.image_url2}}" width="{{v.image_width2}}">{% if v.image_credit2 != "empty" %}<br />Credit: {{ v.image_credit2 }}{% endif %}</div>			
+			{% endif %}
+		</div>
+		{% endfor %}
+		<!-- <div class="tab-pane active" id="andy" style="margin-left:50px"> -->
+	</div>
+</div>
+
+{% endif %}
+
 {% endblock %}
