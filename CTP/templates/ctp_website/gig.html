@@ -4,7 +4,7 @@
 
 {% block bodyblock %}
 	{% if gig %}
-		<h3>{{gig.title}}</h3>
+		<h3>{{gig.title}}{% if subname %}<br />{{subname}}{% endif %}</h3>
 		<h4>{{gig.date.date|date:"l F jS"}}, {{gig.time}}
 		<h4>Venue: <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
 		<hr>
@@ -37,7 +37,7 @@
 
 		{% if musicians %}
 		<hr>
-			<h4>Musicians:</h4>
+			<h4>Artists:</h4>
 				<div>{{gig.musicians|safe|linebreaksbr}}</div>
 			<hr>
 		{% endif %}

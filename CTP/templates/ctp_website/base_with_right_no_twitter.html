@@ -15,7 +15,7 @@
   	   {% if g.1 %}
   	     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           {% for l in g.1 %}
-            <li><a href="/ctp_website/gig/{{l.url}}">{{l.title}}</a></li>
+            <li><a href="/ctp_website/gig/{{l.url}}">{% if l.title = "Bite-Sized Bach " %}{{l.artist_name}}{% else %}{% if l.title = "Currie and Quirk Shostakovich Series" %}{{l.artist_name}}{% else %}{{l.title}}{% endif %}{% endif %}</a></li>
           {% endfor %}
         </ul>
       {% endif %}

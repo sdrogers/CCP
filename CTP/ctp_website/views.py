@@ -127,7 +127,7 @@ def programme(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 
@@ -195,6 +195,12 @@ def gig(request,gig_url):
 		context_dict['gig'] = g
 
 		print g.hit_count
+		if 'Bite' in g.title:
+			context_dict['subname'] = g.artist_name
+		if 'Currie' in g.title:
+			context_dict['subname'] = g.artist_name
+		if 'Dance' in g.title:
+			context_dict['subname'] = g.artist_name
 		if g.price != "empty":
 			context_dict['price'] = g.price
 		if g.artist_bio != "empty":

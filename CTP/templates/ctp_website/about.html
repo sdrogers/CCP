@@ -1,5 +1,7 @@
 {% extends 'ctp_website/base_with_right_no_twitter.html' %}
 
+{% load static %}
+
 {% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
 
 {% block bodyblock %}
@@ -35,6 +37,7 @@ Running since 2011, the series aims to:</p>
 	<div class="tab-content">
 		<div class="tab-pane active" id="andy" style="margin-left:50px">
 		<p><b>Artistic Director</b></p>
+		<img src="{% static 'as.jpg' %}" style="float:right;" width="200px">
 		<p>Born in Dundee, Andy grew up in Staffordshire where he began horn lessons as an excuse to miss science lessons! He studied Music at York University before moving back north to Glasgow to complete his Masters degree at the RSAMD with Hugh Potts. Soon after graduating, he was appointed as principal horn of the Slovenian National Opera and Ballet Orchestra in Ljubljana, Slovenia.    Since returning to Glasgow, he plays regularly with the BBC Scottish Symphony Orchestra, Scottish Chamber Orchestra, Royal Scottish National Orchestra, Scottish Opera and the Rednote Ensemble.    As a soloist he has performed most of the standard repertoire concertos for the instrument in venues ranging from muddy fields to concert halls and churches.  As well as running The Cottier Chamber Project, Andy is also the horn player for host ensemble Daniel’s Beard.</p>
 		</div>
 		<div class="tab-pane" id="judy" style="margin-left:50px">
