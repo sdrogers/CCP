@@ -4,6 +4,8 @@
 
 <head>
 	<title>{% block titleblock %}Placeholder title{% endblock %}</title>
+  <link rel="icon" 
+      href="{% static 'logo.ico' %}">
 	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <style>
       body {
@@ -123,7 +125,7 @@
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/support"><img src="{% static 'supportus.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/dance"><img src="{% static 'dance2.jpg' %}" alt="Dance"></a></li>
         <br />
-        <li><a href="http://www.westendfestival.co.uk/"><img src="{% static 'festival.jpg' %}" width=150px></a></li>
+        <li><a href="http://www.westendfestival.co.uk/" target="new"><img src="{% static 'festival.jpg' %}" width=150px></a></li>
         <br />
        {% block left_block %}for e.g. twitter{% endblock %}
 			</div>
@@ -140,7 +142,7 @@
 	<!-- </div> -->
   <div class="row">
   <div class="span12" style="text-align:center;">
-  <a href="/ctp_website/support"><img src="{% static 'strip.jpg' %}" alt="main logo" /></a>
+  <a href="/ctp_website/support"><img src="{% static 'funderstrip.jpg' %}" alt="main logo" />&nbsp;</a>
   </div>
   </div>
 	<script src="{% static 'js/jquery-2.0.3.min.js' %}"></script>
