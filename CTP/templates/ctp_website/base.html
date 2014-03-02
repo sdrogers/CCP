@@ -98,7 +98,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12" style="text-align:center;">
-				<a href="/ctp_website"><img src="{% static 'ctp_logo.jpg' %}" alt="main logo" /></a>
+      {% if isdance %}
+				<a href="/ctp_website"><img src="{% static 'dancelogo.jpg' %}" alt="main logo" width="700px"/></a>
+      {% else %}
+        <a href="/ctp_website"><img src="{% static 'ctp_logo.jpg' %}" alt="main logo" /></a>
+      {% endif %}
 			</div>
 		</div>
 
@@ -117,7 +121,7 @@
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/venues"><img src="{% static 'venues.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/contact"><img src="{% static 'contactus.jpg' %}" alt="Artists"></a></li>
         <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/support"><img src="{% static 'supportus.jpg' %}" alt="Artists"></a></li>
-        <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/dance"><img src="{% static 'dance.jpg' %}" alt="Dance"></a></li>
+        <li style="padding: 10px 0px 0px 0px"><a href="/ctp_website/dance"><img src="{% static 'dance2.jpg' %}" alt="Dance"></a></li>
         <br />
         <li><a href="http://www.westendfestival.co.uk/"><img src="{% static 'festival.jpg' %}" width=150px></a></li>
         <br />

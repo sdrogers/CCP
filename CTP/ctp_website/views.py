@@ -178,6 +178,7 @@ def dance(request):
 		l = l + [(di,list(Gig.objects.filter(date=di)))]
 
 	context_dict = {'GigDay': l}
+	context_dict["isdance"] = True
 	return render_to_response('ctp_website/dance.html',context_dict,context)
 
 def gig(request,gig_url):
@@ -199,8 +200,9 @@ def gig(request,gig_url):
 			context_dict['subname'] = g.artist_name
 		if 'Currie' in g.title:
 			context_dict['subname'] = g.artist_name
-		if 'Dance' in g.title:
+		if 'dance' in g.url:
 			context_dict['subname'] = g.artist_name
+			context_dict['isdance'] = True
 		if g.price != "empty":
 			context_dict['price'] = g.price
 		if g.artist_bio != "empty":
