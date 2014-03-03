@@ -280,3 +280,18 @@ def venue(request,venue_url):
 		pass
 
 	return render_to_response('ctp_website/venue.html',context_dict,context)
+
+def counts(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+
+	gigs = Gig.objects.all()
+
+	context_dict['gigs'] = gigs
+
+	return render_to_response('ctp_website/counts.html',context_dict,context)	

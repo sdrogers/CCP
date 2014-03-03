@@ -1,0 +1,17 @@
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
+
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+
+{% if gigs %}
+	<table border=1>
+	<tr><td width=100px>Title</td><td width=200px>Artist name</td><td>Date</td><td>Time</td><td>Hits</td>
+	{% for g in gigs %}
+		<tr><td>{{g.title}}</td><td>{{g.artist_name}}</td><td>{{g.date.date|date:"l F jS"}}</td><td>{{g.time}}</td><td>{{g.hit_count}}</td></tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% endblock %}
+
