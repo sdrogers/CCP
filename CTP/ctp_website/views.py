@@ -291,7 +291,10 @@ def counts(request):
 	context_dict = {'GigDay': l}
 
 	gigs = Gig.objects.all()
-
+	total_count = 0
+	for g in gigs:
+		total_count += g.hit_count
+	context_dict['total_count'] = total_count
 	context_dict['gigs'] = gigs
 
 	return render_to_response('ctp_website/counts.html',context_dict,context)	
