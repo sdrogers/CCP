@@ -8,7 +8,7 @@
 	{% if artists %}
 		<ul>
 		{% for artist in artists %}
-			<li><A href="/ctp_website/artist/{{ artist.url }}">{{ artist.name }}</A>&nbsp;&nbsp;
+			<li><A href="/ccp/artist/{{ artist.url }}">{{ artist.name }}</A>&nbsp;&nbsp;
 		{% endfor %}
 		</ul>
 	{% else %}
@@ -17,5 +17,5 @@
 {% else %}
 	<b>Genre <i>{{ name }}</i> does not exist in the database</b>
 {% endif %}
-<div>Return to <A href="/ctp_website/artists">all</A> artists.</div>
+<div>Return to <A href="/ccp/artists">all</A> artists.</div>
 {% endblock %}

@@ -6,7 +6,7 @@
 	{% if gig %}
 		<h3>{{gig.title}}{% if subname %}<br />{{subname}}{% endif %}</h3>
 		<h4>{{gig.date.date|date:"l F jS"}}, {{gig.time}}
-		<h4>Venue: <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
+		<h4>Venue: <A href="/ccp/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
 		<hr>
 		{% if image1 %}
 			<div style="float:right;text-align:right;font-size:12px">
@@ -59,7 +59,7 @@
 					<li>{{special_offers2}}</li>
 					{% endif %}
 				</ul>
-				<div>See the <a href="/ctp_website/tickets">tickets</a> page for more information</div>
+				<div>See the <a href="/ccp/tickets">tickets</a> page for more information</div>
 			{% endif %}
 		{% endif %}
 		{% if bio %}

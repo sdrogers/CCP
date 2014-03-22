@@ -11,7 +11,7 @@ Click on a gig for more information:<br />
 &nbsp;<br/>
 	<ul class="giglist">
 	{% for gig in gigs %}
-		<li><a href="/ctp_website/gig/{{gig.url}}">{{gig.artist_name}}, {{gig.time}}, {{gig.price}}</a>, <A href="/ctp_website/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></li>
+		<li><a href="/ccp/gig/{{gig.url}}">{{gig.artist_name}}, {{gig.time}}, {{gig.price}}</a>, <A href="/ccp/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></li>
 	{% endfor %}
 	</ul>
 {% else %}
