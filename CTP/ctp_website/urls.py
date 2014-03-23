@@ -16,4 +16,5 @@ urlpatterns = patterns('',
         url(r'^gig/(?P<gig_url>\w+)/$',views.gig,name = 'gig'),
         url(r'^venue/(?P<venue_url>\w+)/$',views.venue,name = 'venue'),
         url(r'^counts/',views.counts,name='counts'),
+        url(r'^test/',views.test,name='test'),
         )

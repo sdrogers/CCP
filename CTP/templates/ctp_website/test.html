@@ -1,0 +1,56 @@
+{% extends 'ctp_website/base_with_right.html' %}
+{% load static %}
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+
+
+<h2>6th - 20th June 2014</h2>
+
+<div id="myCarousel" class="carousel" data-interval=5000 data-wrap="true">
+
+
+	<div class="carousel-inner">
+		<div class="active item">
+			<a href="ccp/programme"><img src="{% static 'as.jpg' %}" width=100%></a>
+	 			<div class="carousel-caption">
+	        		<h1>Our programme!</h1>
+	        		<p class="lead">Click to see the programme</p>
+	      		</div>
+	    </div>
+
+		<div class="item">
+			<img src="{% static 'jane.jpg' %}" width=100%>
+	 			<div class="carousel-caption">
+	        		<h1>Something else!</h1>
+	     		</div>
+		</div>
+		<div class="item">
+			<img src="{% static 'freya.jpg' %}" width=100%>
+	 			<div class="carousel-caption">
+	        		<h1>Any text here!</h1>
+	     		</div>
+		</div>
+
+	</div>
+
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+</div>
+
+<h3>Latest News...</h3>
+<p>2014 <a href="/ccp/programme" target="new">programme</a> now available</p>
+<hr>
+<p>Navigate with the menu on the left, or jump to a gig using the menu on the right. General festival information is available on the <a href="/ccp/about">about</a> page.</p>
+<p>Interested in hearing your own work played during the festival? If so, have a look at our <a href="http://cottierchamberproject.com/rsno_competition_call_for_scores.pdf" target="new">call for scores</a>.</p>
+<p>Download festival <a href="http://cottierchamberproject.com/2014_cottier_chamber_project_brochure.pdf" target="new">brochure</a> here.</p>
+<p>Download festival <a href="http://cottierchamberproject.com/2014_cottier_chamber_project_calendar_file.ics">calendar</a>.</p>
+<p>Download handy <a href="http://cottierchamberproject.com/cottier_chamber_project_2014_overview.pdf" target="new">one-page schedule</a>.</p>
+
+
+<!-- <p>Widget will be here</p> -->
+<!-- <p>Soundcloud here</p> -->
+<hr>
+<img src="{% static 'montage.jpg' %}">
+ {% endblock %}
