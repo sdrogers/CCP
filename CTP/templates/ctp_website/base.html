@@ -107,7 +107,7 @@
     }
     .carousel .item {
       width: 100%;
-      max-height: 200px;
+      max-height: 300px;
     }
     </style>
     <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
@@ -118,9 +118,13 @@
 		<div class="row">
 			<div class="span12" style="text-align:center;">
       {% if isdance %}
-				<a href="/ccp"><img src="{% static 'dancelogo_size.jpg' %}" alt="main logo" /></a>
+				<a href="/ccp/dance"><img src="{% static 'dancelogo_size.jpg' %}" alt="main logo" /></a>
       {% else %}
+        {% if isShost %}
+        <a href="/ccp/shost"><img src="{% static 'shost2.jpg' %}" alt="main logo" /></a>
+        {% else %}
         <a href="/ccp"><img src="{% static 'ctp_logo.jpg' %}" alt="main logo" /></a>
+        {% endif %}
       {% endif %}
 			</div>
 		</div>

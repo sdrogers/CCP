@@ -4,6 +4,32 @@
 
 {% block bodyblock %}
 <h2>6th - 20th June 2014</h2>
+
+<div id="myCarousel" class="carousel slide" data-interval=5000 data-wrap="true" data-ride="carousel">
+
+
+	<div class="carousel-inner">
+		<div class="active item">
+			<a href="/ccp/shost"><img src="{% static 'banner1.jpg' %}" width=100%></a>
+	    </div>
+
+		<div class="item">
+			<a href="/ccp/programme"><img src="{% static 'banner2.jpg' %}" width=100%></a>
+		</div>
+		<div class="item">
+			<a href="/ccp/gig/danielsbeard5/"><img src="{% static 'banner3.jpg' %}" width=100%></a>
+		</div>
+		<div class="item">
+			<a href="/ccp/dance"><img src="{% static 'banner4.jpg' %}" width=100%></a>
+		</div>
+	</div>
+
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+</div>
+
+
 <h3>Latest News...</h3>
 <p>2014 <a href="/ccp/programme" target="new">programme</a> now available</p>
 <hr>

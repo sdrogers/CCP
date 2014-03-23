@@ -57,6 +57,17 @@ def support(request):
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/support.html',context_dict,context)
 
+def shost(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+
+	context_dict["isShost"] = True
+	return render_to_response('ctp_website/shost.html',context_dict,context)
 
 
 def venues(request):
