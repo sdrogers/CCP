@@ -311,7 +311,7 @@ def counts(request):
 
 	context_dict = {'GigDay': l}
 
-	gigs = Gig.objects.all()
+	gigs = Gig.objects.order_by('-hit_count')
 	total_count = 0
 	for g in gigs:
 		total_count += g.hit_count
