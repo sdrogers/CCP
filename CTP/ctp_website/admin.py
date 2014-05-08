@@ -14,6 +14,7 @@ class CabModelForm( forms.ModelForm ):
     programme = forms.CharField(widget = forms.Textarea)
     about_programme = forms.CharField(widget = forms.Textarea)
     musicians = forms.CharField(widget = forms.Textarea)
+    spare = forms.CharField(widget=forms.Textarea)
     class Meta:
         model = Gig
 
@@ -26,9 +27,11 @@ class VenueModelForm(forms.ModelForm):
 class Venue_Admin(admin.ModelAdmin):
 	form = VenueModelForm
 
-class Cab_Admin( admin.ModelAdmin ):
+class Cab_Admin(admin.ModelAdmin):
 	form = CabModelForm
-	list_display = ('title','artist_name','date','time','url')
+	list_display = ('title','artist_name','date','time','url','spare')
+	class Meta:
+		model = Gig
 
 admin.site.register(Gig,Cab_Admin)
 admin.site.register(Venue,Venue_Admin)

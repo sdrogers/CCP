@@ -31,16 +31,21 @@
 			<div>{{about_programme|safe|linebreaksbr}}</div>
 		{% endif %}
 
-		{% if personal_url %}
-			<div><A href="{{personal_url}}" target="new">Artist website</A></div>
-		{% endif %}
-
+		{% ifnotequal gig.spare "empty" %}
+			<br />{{gig.spare|safe|linebreaksbr}}
+		{% endifnotequal %}
 		{% if musicians %}
 		<hr>
 			<h4>Artists:</h4>
 				<div>{{gig.musicians|safe|linebreaksbr}}</div>
+				<br />
+		{% endif %}
+
+		{% if personal_url %}
+			<div><A href="{{personal_url}}" target="new">Artist website</A></div>
 			<hr>
 		{% endif %}
+
 		{% if price %}
 			<h4>Price:</h4>
 			<div> {{price}}</div>
