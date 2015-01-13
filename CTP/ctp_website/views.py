@@ -3,6 +3,15 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from ctp_website.models import Gig,GigDay,Venue
 
+def indextemp(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/indextemp.html',context_dict,context)
 
 def index(request):
 	context = RequestContext(request)
