@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^admin/',include(admin.site.urls)),
     url(r'^media/(.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT}),
     url(r'^ccp/',include('ctp_website.urls')),
-    url(r'^$','ctp_website.views.tempindex',name='index'),
+    url(r'^$','ctp_website.views.indextemp',name='index'),
 )
 
 if settings.DEBUG:
