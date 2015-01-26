@@ -219,13 +219,19 @@ def gig(request,gig_url):
 		l = l + [(di,list(Gig.objects.filter(date=di)))]
 
 	context_dict = {'GigDay': l}
+
 	try:
 		g = Gig.objects.get(url = gig_url)
 		setattr(g,'hit_count',g.hit_count + 1)
 		g.save()
 		context_dict['gig'] = g
-
 		print g.hit_count
+
+		musicians = g.musician_set.all()
+
+		context_dict['musicians'] = musicians
+
+		
 		if 'Bite' in g.title:
 			context_dict['subname'] = g.artist_name
 		if 'Currie' in g.title:
@@ -237,8 +243,8 @@ def gig(request,gig_url):
 			context_dict['price'] = g.price
 		if g.artist_bio != "empty":
 			context_dict['bio'] = g.artist_bio
-		if g.musicians != "empty":
-			context_dict['musicians'] = g.musicians
+		# if g.musicians != "empty":
+		# 	context_dict['musicians'] = g.musicians
 		if g.image_url != "empty":
 			image1 = [g.image_url]
 			image1 = image1 + [g.image_width]

@@ -34,7 +34,14 @@
 		{% ifnotequal gig.spare "empty" %}
 			<br />{{gig.spare|safe|linebreaksbr}}
 		{% endifnotequal %}
+
+
 		{% if musicians %}
+		<ul>
+		{% for musician in musicians %}
+			<li>{{musician.name}}</li>
+		{% endfor %}
+		</ul>
 		<hr>
 			<h4>Artists:</h4>
 				<div>{{gig.musicians|safe|linebreaksbr}}</div>

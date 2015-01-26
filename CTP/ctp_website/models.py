@@ -69,5 +69,15 @@ class Gig(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class Musician(models.Model):
+	name = models.CharField(max_length=256)
+	instrument = models.CharField(max_length=256)
+	gigs = models.ManyToManyField(Gig)
+
+	def __unicode__(self):
+		return self.name
+
+	
+
 
 
