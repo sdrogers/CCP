@@ -1,0 +1,32 @@
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
+
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+	{% if series %}
+	<h3>{{series.name}}</h3>
+	<p>{{series.bio}}</p>
+	<hr/>
+	<h4>Concerts in this series</h4>
+	<ul>
+	{% for gig in series.gig_set.all %}
+		<li><p><a href="/ctp_website/gig/{{gig.url}}">{{gig.title}}</a>, <a href="/ctp_website/day/{{gig.date.url}}">{{gig.date.date}}</a>, <a href="/ctp_website/venue/{{gig.venue.id}}">{{gig.venue.name}}</a> </p></li>
+	{% endfor %}
+	</ul>
+	<!-- <hr/>
+		<h4>Concerts in the festival</h4>
+		<ul>
+			{% for gig in artist.gigs.all %}
+				<li><a href="/ctp_website/gig/{{gig.url}}">{{gig.title}}</a>, <a href="/ctp_website/day/{{gig.date.url}}">{{gig.date.date}}</a>, <a href="/ctp_website/venue/{{gig.venue.id}}">{{gig.venue.name}}</a> 
+				<!-- {% for gig in work.gigs.all %}
+				<a href="/ctp_website/gig/{{gig.url}}">{{gig.title}}</a>
+				{% endfor %}
+				</li>
+			{% endfor %}
+		</ul> --> 
+	{% else %}
+	No such series!
+	{% endif %}
+
+{% endblock %}
+

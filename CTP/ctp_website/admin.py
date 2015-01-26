@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ctp_website.models import Gig, Venue, GigDay, Musician
+from ctp_website.models import Gig, Venue, GigDay, Musician, Composer, Work,Series
 from django import forms
 
 class GigAdmin(admin.ModelAdmin):
@@ -38,7 +38,25 @@ class Musician_Admin(admin.ModelAdmin):
 	class Meta:
 		model = Musician
 
+class Composer_Admin(admin.ModelAdmin):
+	list_display = ('name','bio')
+	class Meta:
+		model = Composer
+
+class Work_Admin(admin.ModelAdmin):
+	list_display = ('name','composer')
+	class Meta:
+		model = Work
+
+class Series_Admin(admin.ModelAdmin):
+	display = ('name')
+	class Meta:
+		model = Series
+
 admin.site.register(Gig,Cab_Admin)
 admin.site.register(Venue,Venue_Admin)
 admin.site.register(GigDay,DayAdmin)
 admin.site.register(Musician,Musician_Admin)
+admin.site.register(Composer,Composer_Admin)
+admin.site.register(Work,Work_Admin)
+admin.site.register(Series,Series_Admin)

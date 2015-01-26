@@ -6,7 +6,11 @@
 	{% if gig %}
 		<h3>{{gig.title}}{% if subname %}<br />{{subname}}{% endif %}</h3>
 		<h4>{{gig.date.date|date:"l F jS"}}, {{gig.time}}
-		<h4>Venue: <A href="/ccp/venue/{{gig.venue.url}}">{{gig.venue.name}}</A></h4>
+		<h4>Venue: <A href="/ccp/venue/{{gig.venue.id}}">{{gig.venue.name}}</A></h4>
+		{% if gig.series %}
+			<p>Part of the <A href="/ctp_website/series/{{gig.series.id}}">{{gig.series.name}}</A> series.</p>
+		{% endif %}
+		<h4>
 		<hr>
 		{% if image1 %}
 			<div style="float:right;text-align:right;font-size:12px">
@@ -21,10 +25,19 @@
 				</table>
 			</div>
 		{% endif %}
-		{% if programme %}
+		<!-- {% if programme %}
 			<h4>Programme:</h4>
 			<div style="font-size:medium;">{{programme|safe|linebreaksbr}}</div>
-		{% endif %}
+		{% endif %} -->
+		{% if works %}
+			<h4> Programme:</h4>
+			<ul>
+			{% for work in works %}
+				<li><b><A href="/ctp_website/composer/{{work.composer.id}}">{{work.composer.name}}</A>: {{work.name}}</b></li>
+				<p>{{work.bio}}</p>
+			{% endfor %}
+			</ul>
+		{% endif %} 
 
 		{% if about_programme %}
 			<br />
@@ -37,15 +50,17 @@
 
 
 		{% if musicians %}
+		<h4>Artists:</h4>
 		<ul>
 		{% for musician in musicians %}
-			<li>{{musician.name}}</li>
+			<li><b><A href="/ctp_website/artist/{{musician.id}}">{{musician.name}}</b></A>, <i>{{musician.instrument}}</i></li>
+			<p>{{musician.bio}}</p>
 		{% endfor %}
 		</ul>
-		<hr>
+		<!-- <hr>
 			<h4>Artists:</h4>
 				<div>{{gig.musicians|safe|linebreaksbr}}</div>
-				<br />
+				<br /> -->
 		{% endif %}
 
 		{% if personal_url %}

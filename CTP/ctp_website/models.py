@@ -25,6 +25,12 @@ class Venue(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Series(models.Model):
+	name = models.CharField(max_length=256)
+	bio = models.CharField(max_length=10240)
+	url = models.CharField(max_length=32)
+	def __unicode__(self):
+		return self.name
 
 class GigDay(models.Model):
 	date = models.DateField()
@@ -36,13 +42,14 @@ class GigDay(models.Model):
 
 class Gig(models.Model):
 	title = models.CharField(max_length=1024)
-	artist_name = models.CharField(max_length=1024)
+	artist_name = models.CharField(max_length=1024,null=True)
 	artist_bio = models.CharField(max_length=10240,default = "empty")
+	series = models.ForeignKey(Series,null=True)
 	date = models.ForeignKey(GigDay)
 	time = models.TimeField()
 	venue = models.ForeignKey(Venue,null=True)
 	url = models.CharField(max_length=1024)
-	programme = models.CharField(max_length = 10240,default = "empty")
+	programme = models.CharField(max_length = 10240,null=True)
 	about_programme = models.CharField(max_length = 10240,default = "empty")
 	musicians = models.CharField(max_length = 1024,default = "empty")
 	personal_url = models.CharField(max_length = 1024,default = "empty")
@@ -66,18 +73,38 @@ class Gig(models.Model):
 	spare = models.CharField(max_length = 10240, default = "empty")
 	hit_count = models.IntegerField(default = 0)
 
+	
+
 	def __unicode__(self):
 		return self.title
+
+
 
 class Musician(models.Model):
 	name = models.CharField(max_length=256)
 	instrument = models.CharField(max_length=256)
+	bio = models.CharField(max_length=1024)
 	gigs = models.ManyToManyField(Gig)
 
 	def __unicode__(self):
 		return self.name
 
+class Composer(models.Model):
+	name = models.CharField(max_length=256)
+	bio = models.CharField(max_length=1024)
 	
+	def __unicode__(self):
+		return self.name
+
+class Work(models.Model):
+	name = models.CharField(max_length=256)
+	bio = models.CharField(max_length=1024)
+	composer = models.ForeignKey(Composer)
+	gigs = models.ManyToManyField(Gig)
+
+	def __unicode__(self):
+		return self.name
+
 
 
 

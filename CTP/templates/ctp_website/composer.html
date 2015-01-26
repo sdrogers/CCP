@@ -1,0 +1,27 @@
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
+
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+	{% if composer %}
+	<h3>{{composer.name}}</h3>
+	<p>{{composer.bio}}</p>
+	<hr/>
+	{% if works %}
+		<h4>Works in the festival</h4>
+		<ul>
+			{% for work in works %}
+				<li>{{work.name}}, 
+				{% for gig in work.gigs.all %}
+				<a href="/ctp_website/gig/{{gig.url}}">{{gig.title}}</a>
+				{% endfor %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	{% else %}
+	No such composer!
+	{% endif %}
+
+{% endblock %}
+

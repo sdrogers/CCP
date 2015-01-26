@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from ctp_website.models import Gig,GigDay,Venue
+from ctp_website.models import Gig,GigDay,Venue,Composer,Work,Musician,Series
 
 def indextemp(request):
 	context = RequestContext(request)
@@ -93,31 +93,37 @@ def venues(request):
 
 	return render_to_response('ctp_website/venues.html',context_dict,context)
 
-
-def artist(request,artist_name_url):
+def series(request,series_id):
 	context = RequestContext(request)
-	context_dict = {'artist_name_url':artist_name_url}
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
 	try:
-		a = Artist.objects.get(url__iexact = artist_name_url)
-		g = Gig.objects.filter(artist = a)
-		context_dict['gigs'] = g
-		context_dict['name'] = a.name
-		context_dict['genre'] = a.genre
-		context_dict['bio'] = a.bio
-		if a.image_url != "empty":
-			context_dict['image_url'] = a.image_url
-			context_dict['image_width'] = a.image_width
-			context_dict['image_credit'] = a.image_credit
-		if a.image_url2 != "empty":
-			context_dict['image_url2'] = a.image_url2
-			context_dict['image_width2'] = a.image_width2
-			context_dict['image_credit2'] = a.image_credit2
-		if a.review_url != "empty":
-			context_dict['review_url'] = a.review_url
-		if a.review_url2 != "empty":
-			context_dict['review_url2'] = a.review_url2
-		
-		# print a.image
+		s = Series.objects.get(id=series_id)
+		context_dict['series'] = s
+		# gigs = s.gig_set.all()
+		# context_dict['gigs'] = gigs
+	except:
+		pass
+
+	return render_to_response('ctp_website/series.html',context_dict,context)
+
+
+
+def artist(request,artist_id):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	try:
+		a = Musician.objects.get(id=artist_id)
+		context_dict['artist'] = a
 	except:
 		pass
 
@@ -125,22 +131,10 @@ def artist(request,artist_name_url):
 
 def artists(request):
 	context = RequestContext(request)
-	a = Artist.objects.order_by('name')
+	a = Musician.objects.order_by('name')
 	context_dict = {'artists':a}
 	return render_to_response('ctp_website/artists.html',context_dict,context)
 
-def genre(request,genre_name):
-	context = RequestContext(request)
-	context_dict = {'name':genre_name}
-	try:
-		g = Genre.objects.get(name__iexact = genre_name)
-		context_dict['foundname'] = genre_name
-		a = Artist.objects.filter(genre = g)
-		context_dict['artists'] = a
-	except:
-		pass
-
-	return render_to_response('ctp_website/genre.html',context_dict,context)
 
 def about(request):
 	context =  RequestContext(request)
@@ -228,8 +222,9 @@ def gig(request,gig_url):
 		print g.hit_count
 
 		musicians = g.musician_set.all()
-
 		context_dict['musicians'] = musicians
+		works = g.work_set.all()
+		context_dict['works'] = works
 
 		
 		if 'Bite' in g.title:
@@ -286,8 +281,7 @@ def gig(request,gig_url):
 
 	return render_to_response('ctp_website/gig.html',context_dict,context)
 
-
-def venue(request,venue_url):
+def composer(request,composer_id):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
 	l = []
@@ -296,7 +290,26 @@ def venue(request,venue_url):
 
 	context_dict = {'GigDay': l}
 	try:
-		v = Venue.objects.get(url = venue_url)
+		v = Composer.objects.get(id = composer_id)
+		context_dict['composer'] = v
+		works = v.work_set.all()
+		context_dict['works'] = works
+	except:
+		pass
+
+	return render_to_response('ctp_website/composer.html',context_dict,context)
+
+
+def venue(request,venue_id):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+
+	context_dict = {'GigDay': l}
+	try:
+		v = Venue.objects.get(id = venue_id)
 		context_dict['venue'] = v
 		if v.contact_number !="empty":
 			context_dict["number"] = v.contact_number
