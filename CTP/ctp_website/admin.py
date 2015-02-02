@@ -24,6 +24,11 @@ class VenueModelForm(forms.ModelForm):
 	class Meta:
 		model = Venue
 
+class ArtistModelForm(forms.ModelForm):
+	bio = forms.CharField(widget=forms.Textarea,required=False)
+	class Meta:
+		model = Artist
+
 class Venue_Admin(admin.ModelAdmin):
 	form = VenueModelForm
 
@@ -36,16 +41,29 @@ class Cab_Admin(admin.ModelAdmin):
 
 class Artist_Admin(admin.ModelAdmin):
 	list_display = ('name','instrument')
+	form = ArtistModelForm
 	class Meta:
 		model = Artist
 
-class Composer_Admin(admin.ModelAdmin):
-	list_display = ('name','bio')
+class ComposerModelForm(forms.ModelForm):
+	bio = forms.CharField(widget=forms.Textarea,required=False)
 	class Meta:
 		model = Composer
 
+class Composer_Admin(admin.ModelAdmin):
+	list_display = ('name','bio')
+	form = ComposerModelForm
+	class Meta:
+		model = Composer
+
+class WorkModelForm(forms.ModelForm):
+	bio = forms.CharField(widget=forms.Textarea,required=False)
+	class Meta:
+		model = Work
+
 class Work_Admin(admin.ModelAdmin):
 	list_display = ('name','composer')
+	form = WorkModelForm
 	class Meta:
 		model = Work
 
