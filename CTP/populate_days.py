@@ -32,9 +32,16 @@ def populate():
 def addDay(date,day,url):
 	GigDay.objects.get_or_create(date = date,dayOfTheWeek = day,url = url)
 
+def populate_venues():
+	from django.core import serializers
+	from ctp_website.models import Venue
+	with open('venus.xml') as data:
+		for obj in serializers.deserialize("xml", data):
+			obj.save()
 
 if __name__ == '__main__':
     print "Starting population script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CTP.settings')
     from ctp_website.models import GigDay
     populate()
+    populate_venues()

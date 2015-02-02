@@ -21,4 +21,5 @@ urlpatterns = patterns('',
         url(r'^composer/(?P<composer_id>\w+)/$',views.composer,name='composer'),
         url(r'^artist/(?P<artist_id>\w+)/$',views.artist,name='artist'),
         url(r'^series/(?P<series_id>\w+)/$',views.series,name='series'),
+        url(r'^all_series/',views.all_series,name='all_series'),
         )

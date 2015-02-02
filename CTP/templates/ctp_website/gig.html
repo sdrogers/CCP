@@ -31,10 +31,10 @@
 		{% endif %} -->
 		{% if works %}
 			<h4> Programme:</h4>
-			<ul>
+			<ul class="giglist">
 			{% for work in works %}
-				<li><b><A href="/ctp_website/composer/{{work.composer.id}}">{{work.composer.name}}</A>: {{work.name}}</b></li>
-				<p>{{work.bio}}</p>
+				<li><a href="/ctp_website/composer/{{work.composer.id}}">{{work.composer.name}}</a>: {{work.name}}</li>
+				<p style="text-indent:20px;">{{work.bio}}</p>
 			{% endfor %}
 			</ul>
 		{% endif %} 
@@ -51,10 +51,10 @@
 
 		{% if musicians %}
 		<h4>Artists:</h4>
-		<ul>
+		<ul class="giglist">
 		{% for musician in musicians %}
-			<li><b><A href="/ctp_website/artist/{{musician.id}}">{{musician.name}}</b></A>, <i>{{musician.instrument}}</i></li>
-			<p>{{musician.bio}}</p>
+			<li><A href="/ctp_website/artist/{{musician.id}}">{{musician.name}}</A>, <i>{{musician.instrument}}</i></li>
+			<p style="text-indent:20px;">{{musician.bio}}</p>
 		{% endfor %}
 		</ul>
 		<!-- <hr>

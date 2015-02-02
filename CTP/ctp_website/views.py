@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from ctp_website.models import Gig,GigDay,Venue,Composer,Work,Musician,Series
+from ctp_website.models import Gig,GigDay,Venue,Composer,Work,Artist,Series
 
 def indextemp(request):
 	context = RequestContext(request)
@@ -93,6 +93,18 @@ def venues(request):
 
 	return render_to_response('ctp_website/venues.html',context_dict,context)
 
+def all_series(request):
+	context = RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di)))]
+	context_dict = {'GigDay':l}
+
+	s = Series.objects.order_by('name')
+	context_dict['series'] = s
+	return render_to_response('ctp_website/all_series.html',context_dict,context)
+
 def series(request,series_id):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')
@@ -122,7 +134,7 @@ def artist(request,artist_id):
 
 	context_dict = {'GigDay': l}
 	try:
-		a = Musician.objects.get(id=artist_id)
+		a = Artist.objects.get(id=artist_id)
 		context_dict['artist'] = a
 	except:
 		pass
@@ -131,7 +143,7 @@ def artist(request,artist_id):
 
 def artists(request):
 	context = RequestContext(request)
-	a = Musician.objects.order_by('name')
+	a = Artist.objects.order_by('name')
 	context_dict = {'artists':a}
 	return render_to_response('ctp_website/artists.html',context_dict,context)
 
@@ -221,7 +233,7 @@ def gig(request,gig_url):
 		context_dict['gig'] = g
 		print g.hit_count
 
-		musicians = g.musician_set.all()
+		musicians = g.artist_set.all()
 		context_dict['musicians'] = musicians
 		works = g.work_set.all()
 		context_dict['works'] = works
@@ -311,18 +323,18 @@ def venue(request,venue_id):
 	try:
 		v = Venue.objects.get(id = venue_id)
 		context_dict['venue'] = v
-		if v.contact_number !="empty":
-			context_dict["number"] = v.contact_number
-		if v.image_url != "empty":
-			context_dict["image_url"] = v.image_url
-			context_dict["image_width"] = v.image_width
-		if v.image_credit != "empty":
-			context_dict["image_credit"] = v.image_credit
-		if v.image_url2 != "empty":
-			context_dict["image_url2"] = v.image_url2
-			context_dict["image_width2"] = v.image_width2
-		if v.image_credit2 != "empty":
-			context_dict["image_credit2"] = v.image_credit2
+		# if v.contact_number !="empty":
+			# context_dict["number"] = v.contact_number
+		# if v.image_url != "empty":
+		# 	context_dict["image_url"] = v.image_url
+		# 	context_dict["image_width"] = v.image_width
+		# if v.image_credit != "empty":
+		# 	context_dict["image_credit"] = v.image_credit
+		# if v.image_url2 != "empty":
+		# 	context_dict["image_url2"] = v.image_url2
+		# 	context_dict["image_width2"] = v.image_width2
+		# if v.image_credit2 != "empty":
+		# 	context_dict["image_credit2"] = v.image_credit2
 
 
 	except:
