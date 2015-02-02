@@ -38,6 +38,7 @@ class Series(models.Model):
 	def __unicode__(self):
 		return self.name
 
+
 class GigDay(models.Model):
 	date = models.DateField()
 	dayOfTheWeek = models.CharField(max_length = 32,default = "empty")

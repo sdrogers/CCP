@@ -67,8 +67,14 @@ class Work_Admin(admin.ModelAdmin):
 	class Meta:
 		model = Work
 
+class SeriesModelForm(forms.ModelForm):
+	bio = forms.CharField(widget=forms.Textarea,required=False)
+	class Meta:
+		model = Series
+
 class Series_Admin(admin.ModelAdmin):
 	display = ('name')
+	form = SeriesModelForm
 	class Meta:
 		model = Series
 
