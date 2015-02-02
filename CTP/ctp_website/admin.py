@@ -30,6 +30,7 @@ class Venue_Admin(admin.ModelAdmin):
 class Cab_Admin(admin.ModelAdmin):
 	form = CabModelForm
 	list_display = ('title','artist_name','date','time','url','spare')
+	
 	class Meta:
 		model = Gig
 
