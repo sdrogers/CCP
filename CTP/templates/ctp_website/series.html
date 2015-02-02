@@ -5,7 +5,7 @@
 {% block bodyblock %}
 	{% if series %}
 	<h3>{{series.name}}</h3>
-	<p>{{series.bio}}</p>
+	<p>{{series.bio|safe}}</p>
 	<hr/>
 	<h4>Concerts in this series</h4>
 	<ul>
