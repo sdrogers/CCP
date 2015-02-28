@@ -42,6 +42,7 @@ class Cab_Admin(admin.ModelAdmin):
 class Artist_Admin(admin.ModelAdmin):
 	list_display = ('name','instrument')
 	form = ArtistModelForm
+	filter_horizontal = ('gigs',)
 	class Meta:
 		model = Artist
 
@@ -63,6 +64,7 @@ class WorkModelForm(forms.ModelForm):
 
 class Work_Admin(admin.ModelAdmin):
 	list_display = ('name','composer')
+	filter_horizontal = ('gigs',)
 	form = WorkModelForm
 	class Meta:
 		model = Work
