@@ -14,7 +14,7 @@ def dump():
 
 
 if __name__ == '__main__':
-    print "Starting dump script..."
+    print "Starting venue dump script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CTP.settings')
     from ctp_website.models import Venue,Series
     dump()

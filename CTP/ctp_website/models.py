@@ -80,7 +80,8 @@ class Gig(models.Model):
 	spare = models.CharField(max_length = 10240, null=True,blank=True)
 	hit_count = models.IntegerField(default = 0)
 
-	
+	class Meta:
+		ordering = ['title']
 
 	def __unicode__(self):
 		return self.title
@@ -90,24 +91,33 @@ class Gig(models.Model):
 class Artist(models.Model):
 	name = models.CharField(max_length=256)
 	instrument = models.CharField(max_length=256,null=True,blank=True)
-	bio = models.CharField(max_length=1024,null=True,blank=True)
+	bio = models.CharField(max_length=10240,null=True,blank=True)
 	gigs = models.ManyToManyField(Gig,blank=True)
+
+	class Meta:
+		ordering = ['name']
 
 	def __unicode__(self):
 		return self.name
 
 class Composer(models.Model):
 	name = models.CharField(max_length=256)
-	bio = models.CharField(max_length=1024,null=True,blank=True)
+	bio = models.CharField(max_length=10240,null=True,blank=True)
 	
+	class Meta:
+		ordering = ['name']
+
 	def __unicode__(self):
 		return self.name
 
 class Work(models.Model):
 	name = models.CharField(max_length=256)
-	bio = models.CharField(max_length=1024,null=True,blank=True)
+	bio = models.CharField(max_length=10240,null=True,blank=True)
 	composer = models.ForeignKey(Composer)
 	gigs = models.ManyToManyField(Gig)
+
+	class Meta:
+		ordering = ['name']
 
 	def __unicode__(self):
 		return self.name
