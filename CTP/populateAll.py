@@ -6,6 +6,10 @@ def populate():
 		for gigday in serializers.deserialize("xml",infile):
 			gigday.save()
 
+	with open("series.xml","r") as infile:
+		for series in serializers.deserialize("xml",infile):
+			series.save()
+			
 	with open("composers.xml","r") as infile:
 		for composer in serializers.deserialize("xml",infile):
 			composer.save()

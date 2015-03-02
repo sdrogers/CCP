@@ -8,7 +8,7 @@ def indextemp(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/indextemp.html',context_dict,context)
@@ -18,7 +18,7 @@ def index(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/index.html',context_dict,context)
@@ -39,7 +39,7 @@ def tickets(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/tickets.html',context_dict,context)
@@ -50,7 +50,7 @@ def contact(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/contact.html',context_dict,context)
@@ -61,7 +61,7 @@ def support(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/support.html',context_dict,context)
@@ -71,7 +71,7 @@ def shost(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 
@@ -84,7 +84,7 @@ def venues(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 
@@ -98,7 +98,7 @@ def all_series(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 	context_dict = {'GigDay':l}
 
 	s = Series.objects.order_by('name')
@@ -110,7 +110,7 @@ def series(request,series_id):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	try:
@@ -130,7 +130,7 @@ def artist(request,artist_id):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	try:
@@ -153,7 +153,7 @@ def about(request):
 	d = GigDay.objects.order_by('date')
 	l = []
 	for di in d:
-		l = l + [(di,list(Gig.objects.filter(date=di)))]
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
 
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/about.html',context_dict,context)
@@ -233,58 +233,60 @@ def gig(request,gig_url):
 		context_dict['gig'] = g
 		print g.hit_count
 
-		musicians = g.artist_set.all()
+		musicians = g.artist_set.all().order_by('programme_order')
 		context_dict['musicians'] = musicians
-		works = g.work_set.all()
+		works = g.work_set.all().order_by('programme_order')
 		context_dict['works'] = works
-
-		
-		if 'Bite' in g.title:
-			context_dict['subname'] = g.artist_name
-		if 'Currie' in g.title:
-			context_dict['subname'] = g.artist_name
-		if 'dance' in g.url:
-			context_dict['subname'] = g.artist_name
-			context_dict['isdance'] = True
-		if g.price != "empty":
-			context_dict['price'] = g.price
-		if g.artist_bio != "empty":
-			context_dict['bio'] = g.artist_bio
+		context_dict['about_programme'] = g.about_programme
+		context_dict['artist_bio'] = g.artist_bio
+		# if 'Bite' in g.title:
+		# 	context_dict['subname'] = g.artist_name
+		# if 'Currie' in g.title:
+		# 	context_dict['subname'] = g.artist_name
+		# if 'dance' in g.url:
+		# 	context_dict['subname'] = g.artist_name
+		# 	context_dict['isdance'] = True
+		# if g.price != "empty":
+		context_dict['price'] = g.price
+	
+		# context_dict['bio'] = g.artist_bio
 		# if g.musicians != "empty":
 		# 	context_dict['musicians'] = g.musicians
-		if g.image_url != "empty":
+		print g.image_url
+		if g.image_url!="":
+			print g.image_url
 			image1 = [g.image_url]
 			image1 = image1 + [g.image_width]
-			if g.image_credit != "empty":
-				image1 = image1 + [g.image_credit]	
-			context_dict["image1"] = image1
-		if g.image_url2 != "empty":
+			image1 = image1 + [g.image_credit]	
+			context_dict['image1'] = image1
+
+		if g.image_url2!="":
 			image2 = [g.image_url2]
 			image2 = image2 + [g.image_width2]
-			if g.image_credit2 != "empty":
-				image2 = image2 + [g.image_credit2]	
-			context_dict["image2"] = image2
+			image2 = image2 + [g.image_credit2]	
+			context_dict['image2'] = image2
 
-		if g.programme != "empty":
-			context_dict["programme"] = g.programme
-		if g.about_programme != "empty":
-			context_dict["about_programme"] = g.about_programme
-		if g.personal_url != "empty":
-			context_dict["personal_url"] = g.personal_url
-		if g.box_office_url != "empty":
-			context_dict["box_office_url"] = g.box_office_url
-		if g.box_office_url2 != "empty":
-			context_dict["box_office_url2"] = g.box_office_url2
-		if g.special_offers != "empty":
-			context_dict["special_offers"] = g.special_offers
-		if g.special_offers2 != "empty":
-			context_dict["special_offers2"] = g.special_offers2
-		if g.review_url != "empty":
-			context_dict["review_url"] = g.review_url
-		if g.review_url2 != "empty":
-			context_dict["review_url2"] = g.review_url2
-		if g.review_url3 != "empty":
-			context_dict["review_url3"] = g.review_url3
+		
+		# context_dict['programme'] = g.programme
+		
+		context_dict['about_programme'] = g.about_programme
+
+		
+		context_dict['personal_url'] = g.personal_url
+		
+		context_dict['box_office_url'] = g.box_office_url
+	
+		context_dict['box_office_url2'] = g.box_office_url2
+	
+		context_dict['special_offers'] = g.special_offers
+	
+		context_dict['special_offers2'] = g.special_offers2
+	
+		context_dict['review_url'] = g.review_url
+	
+		context_dict['review_url2'] = g.review_url2
+	
+		context_dict['review_url3'] = g.review_url3
 
 
 

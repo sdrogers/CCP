@@ -50,7 +50,7 @@ class GigDay(models.Model):
 class Gig(models.Model):
 	title = models.CharField(max_length=1024)
 	# artist_name = models.CharField(max_length=1024,null=True)
-	# artist_bio = models.CharField(max_length=10240,default = "empty")
+	artist_bio = models.CharField(max_length=10240,null=True,blank=True)
 	series = models.ForeignKey(Series,null=True,blank=True)
 	date = models.ForeignKey(GigDay)
 	time = models.TimeField()
@@ -93,7 +93,7 @@ class Artist(models.Model):
 	instrument = models.CharField(max_length=256,null=True,blank=True)
 	bio = models.CharField(max_length=10240,null=True,blank=True)
 	gigs = models.ManyToManyField(Gig,blank=True)
-
+	programme_order = models.IntegerField(default=100,null=True,blank=True)
 	class Meta:
 		ordering = ['name']
 
@@ -115,7 +115,7 @@ class Work(models.Model):
 	bio = models.CharField(max_length=10240,null=True,blank=True)
 	composer = models.ForeignKey(Composer)
 	gigs = models.ManyToManyField(Gig)
-
+	programme_order = models.IntegerField(default=100,null=True,blank=True)
 	class Meta:
 		ordering = ['name']
 
