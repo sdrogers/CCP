@@ -101,7 +101,8 @@
 			<h4>Price:</h4>
 			<div> {{price}}</div>
 			{% if box_office_url %}
-				<div>Click <a href="{{box_office_url}}" target="new">here</a> to buy tickets online.</div>
+				<!-- <div>Click <a href="{{box_office_url}}" target="new">here</a> to buy tickets online.</div> -->
+				<div>{{box_office_url|safe}}</div>
 			{% endif %}
 			{% if box_office_url2 %}
 				<div>Click <a href="{{box_office_url2}}">here</a> for box office information.</div>
