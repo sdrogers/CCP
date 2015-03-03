@@ -31,20 +31,18 @@
 			<ul class="giglist">
 			{% for work in works %}
 				{% if work.bio %}
-					<li><a data-toggle="collapse" data-target="#{{forloop.counter}}">{{work.composer.name}} <b>{{work.name}}</b></a></li>
-	      			<div id="{{forloop.counter}}" class="collapse out">
-	      			<p>
+					<li><a href="/ctp_website/composer/{{work.composer.id}}">{{work.composer.name}}</a>
+					<p style="margin-left:5px"><b>{{work.name}}</b> <a data-toggle="collapse" data-target="#{{forloop.counter}}">(show info)</a></p></li>
+
+<!-- 					<li><a data-toggle="collapse" data-target="#{{forloop.counter}}">{{work.composer.name}} <b>{{work.name}}</b></a></li>
+ -->	      			<div id="{{forloop.counter}}" class="collapse out">
+	      			<p style="margin-left:10px">
 	       				{{work.bio|safe|linebreaksbr}}
 	       			</p>
 	      			</div>
-	      			<p>
-	      			<a href="/ctp_website/composer/{{work.composer.id}}">More by this composer</a>
-	      			</p>
 	      		{% else %}
-	      			<li>{{work.composer.name}} <b>{{work.name}}</b></li>
-	      			<p>
-	      				<a href="/ctp_website/composer/{{work.composer.id}}">More by this composer</a>
-      				</p>
+	      			<li><a href="/ctp_website/composer/{{work.composer.id}}">{{work.composer.name}}</a>
+					<p style="margin-left:5px"><b>{{work.name}}</b> </p></li>
 	      		{% endif %}
 	  		{% endfor %}
 	  		</ul>
@@ -58,9 +56,7 @@
 			</div>
 		{% endif %}
 
-		{% ifnotequal gig.spare "empty" %}
-			<br />{{gig.spare|safe|linebreaksbr}}
-		{% endifnotequal %}
+		
 
 		{% if artist_bio %}
 			{{ artist_bio|safe|linebreaksbr}}
@@ -96,6 +92,11 @@
 			<div><A href="{{personal_url}}" target="new">Artist website</A></div>
 			<hr>
 		{% endif %}
+
+
+		{% ifnotequal gig.spare "empty" %}
+			<br />{{gig.spare|safe|linebreaksbr}}
+		{% endifnotequal %}
 
 		{% if price %}
 			<h4>Price:</h4>

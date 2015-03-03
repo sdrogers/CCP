@@ -42,18 +42,23 @@
 				{% endif %}
 			<div style="font-size:medium;">{{v.address|safe|linebreaksbr}}</div>
 			<br />
-			{% if v.contact_number %}
+			<!-- {% if v.contact_number %}
 				<div style="font-size:medium;">Tel: {{v.contact_number}}</div>
 				<br />
-			{% endif %}
+			{% endif %} -->
 			<div>{{v.info|safe|linebreaksbr}}</div>
+			<h4>Getting there</h4>
+			<p>Nearest Subway: <b>{{v.nearest_subway}}</b></p>
+			<p>Nearest Bus Route: <b>{{v.nearest_bus}}</b></p>
+			<div>
+				{{v.google_maps|safe}}
+			</div>
 			<hr>
-			{% if v.image_url2 != "empty" %}
-				<div style="font-size:12px"><img src = "{{v.image_url2}}" width="{{v.image_width2}}">{% if v.image_credit2 != "empty" %}<br />Credit: {{ v.image_credit2 }}{% endif %}</div>			
+			{% if v.image_url2 != "" %}
+				<div style="font-size:12px"><img src = "{{v.image_url2}}" width="{{v.image_width2}}">{% if v.image_credit2 != "" %}<br />Credit: {{ v.image_credit2 }}{% endif %}</div>			
 			{% endif %}
 		</div>
 		{% endfor %}
-		<!-- <div class="tab-pane active" id="andy" style="margin-left:50px"> -->
 	</div>
 </div>
 
