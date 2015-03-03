@@ -67,22 +67,15 @@
 		<ul class="giglist">
 		{% for musician in musicians %}
 			{% if musician.bio %}
-					<li><a data-toggle="collapse" data-target="#m{{forloop.counter}}"><b>{{musician.name}}</b> {{musician.instrument}}</a></li>
+					<li><a href="/ctp_website/artist/{{musician.id}}"><b>{{musician.name}}</b></a> {{musician.instrument}} <a data-toggle="collapse" data-target="#m{{forloop.counter}}">[bio]</a></li>
 	      			<div id="m{{forloop.counter}}" class="collapse out">
-	      			<p>
+	      			<p style="margin-left:10px">
 	       				{{musician.bio|safe|linebreaksbr}}
 	       			</p>
 	      			</div>
-	      			<p>
-	      			<a href="/ctp_website/artist/{{musician.id}}">More by this artist</a>
-	      			</p>
 	      		{% else %}
-	      			<li><b>{{musician.name}}</b> {{musician.instrument}}</li>
-	      			<p>
-	      				<a href="/ctp_website/artist/{{musician.id}}">More by this artist</a>
-      				</p>
+	      			<li><b><a href="/ctp_websits/artist/{{musician.id}}">{{musician.name}}</a></b> {{musician.instrument}}</li>
 	      		{% endif %}
-
 		{% endfor %}
 		</ul>
 		
