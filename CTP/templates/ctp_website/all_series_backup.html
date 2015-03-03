@@ -1,0 +1,67 @@
+{% extends 'ctp_website/base_with_right_no_twitter.html' %}
+
+{% block titleblock %}Welcome to the Cottier Chamber Project{% endblock %}
+
+{% block bodyblock %}
+<h3>Series</h3>
+
+{% if series %}
+
+<ul class="giglist">
+{% for s in series %}
+	<li><b>{{s.name}}</b> <a href="#{{s.url}}" data-toggle="collapse">[show more]</a></li>
+	<div id="{{s.url}}" class="collapse out">
+		<p style="margin-left:20px">
+			{{s.bio|safe}}
+		</p>
+		<p style="margin-left:20px">Click <a href="/ctp_website/series/{{s.id}}">here</a> for more information.</p>
+	</div>
+{% endfor %}
+</ul>
+
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		{% for s in series %}
+			{% if forloop.first %}
+			<li class="active">
+			{% else %}
+			<li>
+			{% endif %}
+				<a href="#{{s.url}}" data-toggle="tab">{{s.name}}</a>
+			</li>
+		{% endfor %}
+  		<!-- <li class="active"> -->
+	</ul>
+
+	<div class="tab-content">
+		{% for s in series %}
+			{% if forloop.first %}
+			<div class="tab-pane active" id="{{s.url}}">
+			{% else %}
+			<div class="tab-pane" id="{{s.url}}">
+			{% endif %}
+				<h3>{{s.name}}</h3>
+				{% if s.image_url != "empty" %}
+					<div style="float:right;text-align:right;font-size:12px"><img src = "{{s.image_url}}" width="{{s.image_width}}">{% if s.image_credit %}<br />Credit: {{ s.image_credit }}{% endif %}</div>			
+				{% endif %}
+				<br />
+				<div>{{s.bio|safe}}</div>
+				<hr>
+				<h4>Events in this series:</h4>
+				<ul class="giglist">
+				{% for gig in s.gig_set.all %}
+					<li><a href="/ccp/gig/{{gig.url}}">{{gig.title}}, <a href="/ctp_website/day/{{gig.date.url}}">{{gig.date.date}}</a>, <a href="/ctp_website/venue/{{gig.venue.id}}">{{gig.venue.name}}</a></a></li>
+				{% endfor %}
+				</ul>
+				{% if s.image_url2 %}
+					<div style="font-size:12px"><img src = "{{s.image_url2}}" width="{{s.image_width2}}">{% if s.image_credit2  %}<br />Credit: {{ s.image_credit2 }}{% endif %}</div>			
+				{% endif %}
+			</div>
+		{% endfor %}
+		<!-- <div class="tab-pane active" id="andy" style="margin-left:50px"> -->
+	</div>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -15,9 +15,16 @@
 <br />
 {% endif %}
 <div>{{venue.info|safe|linebreaksbr}}</div>
+<br />
+<h4>Getting there</h4>
+			<p>Nearest Subway: <b>{{venue.nearest_subway}}</b></p>
+			<p>Nearest Bus Route: <b>{{venue.nearest_bus}}</b></p>
+			<div>
+				{{venue.google_maps|safe}}
+			</div>
 <hr>
-{% if image_url2 %}
-<div style="font-size:12px"><img src = "{{image_url2}}" width="{{image_width2}}">{% if image_credit2 %}<br />Credit: {{ image_credit2 }}{% endif %}</div>			
+{% if venue.image_url2 %}
+<div style="font-size:12px"><img src = "{{venue.image_url2}}" width="{{venue.image_width2}}">{% if venue.image_credit2 %}<br />Credit: {{ venue.image_credit2 }}{% endif %}</div>			
 {% endif %}
 
 

@@ -167,23 +167,23 @@ def programme(request):
 
 	context_dict = {'GigDay': l}
 
-	cott = Venue.objects.get(url = "cottiers")
-	cottl = []
-	for di in d:
-		cottl = cottl + [(di,list(Gig.objects.filter(date=di,venue=cott)))]
-	context_dict['cottgigs'] = cottl;
+	# cott = Venue.objects.get(url = "cottiers")
+	# cottl = []
+	# for di in d:
+	# 	cottl = cottl + [(di,list(Gig.objects.filter(date=di,venue=cott)))]
+	# context_dict['cottgigs'] = cottl;
 
-	hunt = Venue.objects.get(url = "hunterian")
-	huntl = []
-	for di in d:
-		huntl = huntl + [(di,list(Gig.objects.filter(date=di,venue=hunt)))]
-	context_dict['huntgigs'] = huntl;
+	# hunt = Venue.objects.get(url = "hunterian")
+	# huntl = []
+	# for di in d:
+	# 	huntl = huntl + [(di,list(Gig.objects.filter(date=di,venue=hunt)))]
+	# context_dict['huntgigs'] = huntl;
 
-	silas = Venue.objects.get(url = "stsilas")
-	silasl = []
-	for di in d:
-		silasl = silasl + [(di,list(Gig.objects.filter(date=di,venue=silas)))]
-	context_dict['silasgigs'] = silasl;
+	# silas = Venue.objects.get(url = "stsilas")
+	# silasl = []
+	# for di in d:
+	# 	silasl = silasl + [(di,list(Gig.objects.filter(date=di,venue=silas)))]
+	# context_dict['silasgigs'] = silasl;
 
 	return render_to_response('ctp_website/programme.html',context_dict,context)
 
