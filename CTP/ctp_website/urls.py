@@ -2,8 +2,8 @@ from django.conf.urls import patterns, url
 from ctp_website import views
 
 urlpatterns = patterns('',
-        url(r'^$', views.indextemp, name='indextemp'),
-        url(r'^newindex/$', views.index,name='index'),
+        url(r'^$', views.index, name='index'),
+        # url(r'^newindex/$', views.index,name='index'),
         url(r'^artists/',views.artists,name = 'artists'),
         url(r'^about/',views.about,name='about'),
         url(r'^contact/',views.contact,name='contact'),
