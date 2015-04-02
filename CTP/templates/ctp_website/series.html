@@ -7,7 +7,7 @@
 	<h3>{{series.name}}</h3>
 	<p>{{series.bio|safe}}</p>
 	<hr/>
-	<h4>Concerts in this series</h4>
+	<h4>Events in this series</h4>
 	<ul class="giglist">
 	{% for gig in series.gig_set.all %}
 		<li><p><b><a href="/ctp_website/gig/{{gig.url}}">{{gig.title}}</a></b>, <a href="/ctp_website/day/{{gig.date.url}}">{{gig.date.date}}</a>, <a href="/ctp_website/venue/{{gig.venue.id}}">{{gig.venue.name}}</a> </p></li>

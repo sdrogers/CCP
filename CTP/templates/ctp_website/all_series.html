@@ -9,7 +9,7 @@
 <p>Click on [show details] to see more about the series that make up the festival.</p>
 <ul class="giglist">
 {% for s in series %}
-	<li><b>{{s.name}}</b> <a href="#{{s.url}}" data-toggle="collapse">[show details]</a></li>
+	<li><b style="font-size:14pt;">{{s.name}}</b> <a href="#{{s.url}}" data-toggle="collapse" style="font-size:10pt;">[show details]</a></li>
 	<div id="{{s.url}}" class="collapse out">
 		<p style="margin-left:20px">
 			{{s.bio|safe|linebreaksbr}}
