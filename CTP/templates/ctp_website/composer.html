@@ -5,7 +5,7 @@
 {% block bodyblock %}
 	{% if composer %}
 	<h3>{{composer.name}}</h3>
-	<p>{{composer.bio}}</p>
+	<p>{{composer.bio|safe|linebreaksbr}}</p>
 	<hr/>
 	{% if works %}
 		<h4>Works in the festival</h4>
