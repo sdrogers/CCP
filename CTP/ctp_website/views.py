@@ -116,8 +116,8 @@ def series(request,series_id):
 	try:
 		s = Series.objects.get(id=series_id)
 		context_dict['series'] = s
-		# gigs = s.gig_set.all()
-		# context_dict['gigs'] = gigs
+		gigs = s.gig_set.all().order_by('date','time')
+		context_dict['gigs'] = gigs
 	except:
 		pass
 
