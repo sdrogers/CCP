@@ -158,6 +158,16 @@ def about(request):
 	context_dict = {'GigDay': l}
 	return render_to_response('ctp_website/about.html',context_dict,context)
 
+def gallery(request):
+	context =  RequestContext(request)
+	d = GigDay.objects.order_by('date')
+	l = []
+	for di in d:
+		l = l + [(di,list(Gig.objects.filter(date=di).order_by('time')))]
+
+	context_dict = {'GigDay': l}
+	return render_to_response('ctp_website/gallery.html',context_dict,context)
+
 def programme(request):
 	context = RequestContext(request)
 	d = GigDay.objects.order_by('date')

@@ -10,6 +10,17 @@
 		{% if gig.series %}
 			<p>Part of the <A href="/ctp_website/series/{{gig.series.id}}">{{gig.series.name}}</A> series.</p>
 		{% endif %}
+		{% if review_url %}
+			<hr />
+			<b>Read some reviews of this performance:</b>
+				<a href="{{review_url}}" target="new">[review]</a>
+		{% endif %}
+		{% if review_url2 %}
+			<a href="{{review_url2}}" target="new">&nbsp;[review]</a>
+		{% endif %}
+		{% if review_url3 %}
+			<a href="{{review_url3}}" target="new">&nbsp;[review]</a>
+		{% endif %}
 		<hr>
 		{% if image1 %}
 			<div style="float:right;text-align:right;font-size:12px">
@@ -25,7 +36,7 @@
 			</div>
 		{% endif %}
 		
-
+		
 		{% if works %}
 			<h4>Programme:</h4>
 			<ul class="giglist">
@@ -120,19 +131,6 @@
 			<div>
 				{{bio|safe|linebreaksbr}}
 			</div>
-		{% endif %}
-
-		{% if review_url %}
-			<hr>
-			<a href="{{review_url}}" target="new">Review!</a>
-		{% endif %}
-		{% if review_url2 %}
-			<hr>
-			<a href="{{review_url2}}" target="new">Review!</a>
-		{% endif %}
-		{% if review_url3 %}
-			<hr>
-			<a href="{{review_url3}}" target="new">Review!</a>
 		{% endif %}
 
 	{% else %}
