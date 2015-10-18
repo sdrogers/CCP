@@ -11,7 +11,7 @@
   	{% for g in GigDay %}
   	 <div class="dropdown">
      <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" data-placement="top" title="{% if g.1 %}|{% for l in g.1 %}&nbsp;{{l.title}} |{% endfor %}{% else %} empty {%endif%}">{{g.0.date|date:"l F jS"}}</a>-->
-     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{g.0.date|date:"l F jS"}}</a>
+     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{g.0.date|date:"F jS, Y"}}</a>
   	   {% if g.1 %}
   	     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           {% for l in g.1 %}
