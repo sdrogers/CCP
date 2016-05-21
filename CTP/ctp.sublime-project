@@ -2,8 +2,22 @@
 	"folders":
 	[
 		{
-			"follow_symlinks": true,
 			"path": "."
+		},
+		{
+			"path": "CTP"
+		},
+		{
+			"path": "ctp_website"
+		},
+		{
+			"path": "media"
+		},
+		{
+			"path": "static"
+		},
+		{
+			"path": "templates"
 		}
 	]
 }
