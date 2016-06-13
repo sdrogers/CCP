@@ -107,8 +107,12 @@
 			<div> {{price}}</div>
 			{% if box_office_url %}
 				<!-- <div>Click <a href="{{box_office_url}}" target="new">here</a> to buy tickets online.</div> -->
-				<div>{{box_office_url|safe}}</div>
+				<!-- <div>{{box_office_url|safe}}</div> -->
 			{% endif %}
+
+			<!-- hack for 2016 -->
+			<div><a href="http://sa1.seatadvisor.com/sabo/servlets/EventSearch?presenter=TLFOURACRES&codes=TCCP&killLogin=true" target="new">Buy tickets</a></div>
+
 			{% if box_office_url2 %}
 				<div>Click <a href="{{box_office_url2}}">here</a> for box office information.</div>
 			{% endif %}
